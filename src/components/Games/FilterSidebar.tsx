@@ -37,7 +37,7 @@ export default function FilterSidebar() {
           />
           <input
             type="text"
-            placeholder="Find intel..."
+            placeholder="Find Game..."
             defaultValue={currentSearch}
             onChange={(e) => updateFilter("q", e.target.value)}
             className="w-full bg-white/5 border border-white/10 text-sm rounded-2xl pl-12 pr-4 py-4 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/40 focus:bg-zinc-900/80 transition-all text-white placeholder:text-zinc-600 font-bold"

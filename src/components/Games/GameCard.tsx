@@ -82,7 +82,7 @@ export default async function GameCard({ unsupportedId, alternativeId, antiCheat
             </div>
 
             <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-indigo-400 font-black uppercase tracking-widest opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
-                View Intel <RiDashboard3Line size={12} />
+                View The Game <RiDashboard3Line size={12} />
             </div>
           </div>
           

@@ -50,7 +50,7 @@ export default async function BrowsePage({ searchParams }: PageProps) {
             <div className="flex items-center gap-2 mb-6 px-2">
               <RiRadarLine className="text-indigo-500 animate-pulse" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">
-                Filter Intel
+                Filter Games
               </span>
             </div>
             <FilterSidebar />
@@ -97,10 +97,10 @@ export default async function BrowsePage({ searchParams }: PageProps) {
                     </div>
 
                     <h3 className="text-3xl font-black uppercase tracking-tighter text-white mb-4">
-                      Intel <span className="text-indigo-500">Not Found</span>
+                      Game <span className="text-indigo-500">Not Found</span>
                     </h3>
                     <p className="text-zinc-400 max-w-sm mx-auto mb-10 font-medium">
-                      No matches located in the current sector. Broaden your filters or submit new intel to the squad.
+                      No matches located in the current sector. Broaden your filters or submit new game to the squad.
                     </p>
 
                     <Link

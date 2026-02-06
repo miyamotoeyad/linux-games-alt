@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${bad.name} Alternatives | Play ${good.name} on Linux`,
-    description: `Issues running ${bad.name}? Deploy ${good.name} instead. Check compatibility, Steam Deck verification, and tactical intel for the best Linux gaming experience.`,
+    description: `Issues running ${bad.name}? Deploy ${good.name} instead. Check compatibility, Steam Deck verification, and tactical game for the best Linux gaming experience.`,
     openGraph: {
       title: `Tactical Migration: ${bad.name} → ${good.name}`,
       description: `Verified alternative found. Switch to ${good.name} for superior compatibility.`,
@@ -40,7 +40,7 @@ export default async function ComparisonPage({ params }: PageProps) {
   if (!badGame || !goodGame) {
     return (
       <div className="bg-black text-red-500 h-screen flex items-center justify-center font-black uppercase tracking-[0.3em]">
-        Critical Error: Intel Corrupted
+        Critical Error: Game Corrupted
       </div>
     );
   }
@@ -213,7 +213,7 @@ export default async function ComparisonPage({ params }: PageProps) {
             <div className="p-8 rounded-3xl bg-indigo-500/3 border border-indigo-500/10">
                 <div className="flex items-center gap-2 mb-4">
                     <RiComputerLine className="text-indigo-400 animate-pulse" />
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Technical Intel</h3>
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Technical Game</h3>
                 </div>
                 <p className="text-xs text-indigo-400/60 mb-4 font-bold">{goodGame.publishers?.join(', ')}</p>
                 <div className="text-sm text-zinc-300 font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: goodGame.short_description }} />

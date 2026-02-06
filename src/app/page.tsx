@@ -100,7 +100,7 @@ export default async function Home() {
                     <RiDiscordFill size={44} className="text-white" />
                 </div>
                 <h3 className="text-5xl font-black uppercase tracking-tighter mb-4">
-                    Missing Intel?
+                    Missing Game?
                 </h3>
                 <p className="text-zinc-400 text-lg max-w-md mx-auto mb-10 font-medium leading-relaxed">
                     The archive grows through community field reports. Suggest a new swap on our Discord.
