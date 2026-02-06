@@ -4,6 +4,7 @@ import {
   RiGroupLine, RiComputerLine 
 } from "react-icons/ri";
 import { Metadata } from "next";
+import { getSteamGame } from "@/lib/SteamData";
 
 interface PageProps {
   params: Promise<{ badId: string; goodId: string }>;
@@ -11,26 +12,26 @@ interface PageProps {
 
 const API_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
-async function fetchGame(id: string) {
-  try {
-    const res = await fetch(`${API_BASE}/api/game/${id}`, { 
-      next: { revalidate: 3600 } // Better than force-cache for dynamic data
-    });
+// async function fetchGame(id: string) {
+//   try {
+//     const res = await fetch(`${API_BASE}/api/game/${id}`, { 
+//       next: { revalidate: 3600 } // Better than force-cache for dynamic data
+//     });
     
-    if (!res.ok) return null;
+//     if (!res.ok) return null;
     
-    const json = await res.json();
-    return json.success ? json.data : null;
-  } catch (error) {
-    console.error("Fetch failed:", error);
-    return null;
-  }
-}
+//     const json = await res.json();
+//     return json.success ? json.data : null;
+//   } catch (error) {
+//     console.error("Fetch failed:", error);
+//     return null;
+//   }
+// }
 
 // --- DYNAMIC SEO GENERATOR ---
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { badId, goodId } = await params;
-  const [bad, good] = await Promise.all([fetchGame(badId), fetchGame(goodId)]);
+  const [bad, good] = await Promise.all([getSteamGame(badId), getSteamGame(goodId)]);
 
   if (!bad || !good) return { title: "Data Corrupted" };
 
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ComparisonPage({ params }: PageProps) {
   const { badId, goodId } = await params;
-  const [badGame, goodGame] = await Promise.all([fetchGame(badId), fetchGame(goodId)]);
+  const [badGame, goodGame] = await Promise.all([getSteamGame(badId), getSteamGame(goodId)]);
 
   if (!badGame || !goodGame) {
     return (

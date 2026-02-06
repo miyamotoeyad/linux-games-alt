@@ -1,4 +1,8 @@
 export interface SteamGame {
+  genres: any;
+  platforms(platforms: any): import("react").ReactNode;
+  publishers: any;
+  developers: any;
   is_free: any;
   name: string;
   header_image: string;
