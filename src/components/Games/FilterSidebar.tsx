@@ -71,7 +71,7 @@ export default function FilterSidebar() {
               <button
                 key={genre}
                 onClick={() => updateFilter("genre", genre)}
-                className={`group relative flex items-center justify-between px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
+                className={`group cursor-pointer relative flex items-center justify-between px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 ${
                   isActive
                     ? "bg-indigo-600 text-white shadow-xl shadow-indigo-600/20 translate-x-2"
                     : "bg-white/5 text-zinc-500 hover:bg-white/10 hover:text-zinc-200"
