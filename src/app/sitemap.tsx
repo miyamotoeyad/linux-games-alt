@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     process.env.NEXT_PUBLIC_DOMAIN_URL || "https://linuxgamesalt.com";
 
   // Define your core static routes
-  const staticRoutes = ['', 'browse', '/about', '/privacy', '/terms', '/contact'].map((route) => ({
+  const staticRoutes = ['', '/browse', '/about', '/privacy', '/terms', '/contact'].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
