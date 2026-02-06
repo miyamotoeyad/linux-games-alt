@@ -7,6 +7,7 @@ import {
   RiHashtag, 
   RiExternalLinkLine,
 } from "react-icons/ri";
+import { Contact } from '../../lib/SocialContact';
 
 // --- SEO METADATA ---
 export const metadata: Metadata = {
@@ -35,6 +36,8 @@ export default function ContactPage() {
       "https://github.com/combatredirect"
     ]
   };
+
+  const { discord, email, github, x } = Contact
 
   return (
     <main className="relative min-h-screen bg-zinc-950 text-zinc-200 font-sans">
@@ -65,7 +68,7 @@ export default function ContactPage() {
         <div className="group relative mb-8">
           <div className="absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
           <Link
-            href="https://discord.gg/yourlink" 
+            href={discord}
             target="_blank" 
             className="relative flex flex-col md:flex-row items-center justify-between p-10 md:p-16 rounded-[2.5rem] bg-zinc-950 border border-white/10 hover:border-indigo-500/50 transition-all duration-500 overflow-hidden"
           >
@@ -111,8 +114,8 @@ export default function ContactPage() {
               Follow our deployment logs and update history on our social nodes.
             </p>
             <div className="flex gap-4">
-              <Link href="https://twitter.com/combatredirect" className="text-xs font-bold text-zinc-300 hover:text-white cursor-pointer transition-colors">Twitter/X</Link>
-              <Link href="https://github.com/combatredirect" className="text-xs font-bold text-zinc-300 hover:text-white cursor-pointer transition-colors">GitHub</Link>
+              <Link href={x} className="text-xs font-bold text-zinc-300 hover:text-white cursor-pointer transition-colors">Twitter/X</Link>
+              <Link href={github} className="text-xs font-bold text-zinc-300 hover:text-white cursor-pointer transition-colors">GitHub</Link>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { GameAlt } from "@/lib/data";
 import GameCard from "@/components/Games/GameCard";
 import { RiDiscordFill, RiGamepadLine, RiCompass3Line, RiInformationLine, RiArrowRightUpLine } from "react-icons/ri";
+import { Contact } from "@/lib/SocialContact";
 
 export default async function Home() {
   // 1. Limit the display count for the home page
@@ -105,7 +106,7 @@ export default async function Home() {
                     The archive grows through community field reports. Suggest a new swap on our Discord.
                 </p>
                 <a 
-                    href="https://discord.gg/yourlink" 
+                    href={Contact.discord}
                     className="px-12 py-5 bg-white text-black hover:bg-indigo-600 hover:text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-2xl active:scale-95"
                 >
                     Connect to Signal

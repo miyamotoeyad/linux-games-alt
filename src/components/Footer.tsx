@@ -1,3 +1,4 @@
+import { Contact } from "@/lib/SocialContact";
 import Link from "next/link";
 import React from "react";
 import { RiCompass3Line, RiDiscordFill, RiHeart2Fill } from "react-icons/ri";
@@ -34,7 +35,7 @@ export default function Footer() {
               </Link>
               
               <Link 
-                href="https://discord.gg/linuxgaming" 
+                href={Contact.discord}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 bg-zinc-900/80 border border-white/10 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-tight hover:bg-zinc-800 transition-all active:scale-95"

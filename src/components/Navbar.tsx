@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { RiDiscordFill, RiGithubFill, RiGamepadLine } from "react-icons/ri";
+import { Contact } from "@/lib/SocialContact";
 
 export default function Navbar() {
   return (
@@ -40,14 +41,14 @@ export default function Navbar() {
             ))}
           </div>
           <Link
-            href="https://github.com"
+            href={Contact.github}
             className="p-2.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all"
           >
             <RiGithubFill size={20} />
           </Link>
 
           <Link
-            href="https://discord.gg"
+            href={Contact.discord}
             className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-bold transition-transform active:scale-95 shadow-lg shadow-indigo-600/20"
           >
             <RiDiscordFill size={18} />

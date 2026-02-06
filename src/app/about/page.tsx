@@ -6,22 +6,23 @@ import {
   RiExternalLinkLine,
   RiSearchEyeLine,
 } from "react-icons/ri";
+import Link from "next/link";
 
 // --- SEO METADATA ---
 export const metadata: Metadata = {
   title: "The Mission",
-  description: 
+  description:
     "Learn how Combat Redirect bridges the gap between Windows-locked titles and Linux-native alternatives using ProtonDB telemetry and community verification.",
   openGraph: {
     title: "The Mission: Combat Redirect",
-    description: "Our manifesto on migrating players to the open-source gaming frontier.",
+    description:
+      "Our manifesto on migrating players to the open-source gaming frontier.",
   },
 };
 
 export default function About() {
   return (
     <main className="relative min-h-screen flex items-center justify-center overflow-hidden text-white bg-zinc-950 py-20 px-6">
-      
       {/* --- PAGE-SPECIFIC BACKGROUND --- */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-indigo-600/10 blur-[120px]" />
@@ -64,7 +65,6 @@ export default function About() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
           {/* External Intel Module */}
           <section className="relative group p-10 rounded-[2.5rem] bg-white/3 border border-white/10 backdrop-blur-3xl overflow-hidden">
             <div className="absolute inset-0 bg-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -73,14 +73,14 @@ export default function About() {
               <div className="h-14 w-14 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-indigo-600/40">
                 <RiSearchEyeLine size={28} className="text-white" />
               </div>
-              <a
+              <Link
                 href="https://www.protondb.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-colors"
               >
                 Launch ProtonDB <RiExternalLinkLine size={16} />
-              </a>
+              </Link>
             </div>
 
             <h2 className="text-2xl font-black uppercase tracking-tight mb-4">

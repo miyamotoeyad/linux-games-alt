@@ -3,6 +3,8 @@ import GameCard from "@/components/Games/GameCard";
 import FilterSidebar from "@/components/Games/FilterSidebar";
 import { Suspense } from "react";
 import { RiDiscordFill, RiRadarLine, RiSearchEyeLine } from "react-icons/ri";
+import Link from "next/link";
+import { Contact } from "@/lib/SocialContact";
 
 // Upgrade: Glassy Loading Skeleton
 function GridSkeleton() {
@@ -101,15 +103,15 @@ export default async function BrowsePage({ searchParams }: PageProps) {
                       No matches located in the current sector. Broaden your filters or submit new intel to the squad.
                     </p>
 
-                    <a
-                      href="https://discord.gg/your-link"
+                    <Link
+                      href={Contact.discord}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-3 px-10 py-4 bg-white text-black hover:bg-indigo-500 hover:text-white rounded-2xl font-black uppercase tracking-tight transition-all active:scale-95 shadow-2xl"
                     >
                       <RiDiscordFill size={24} />
                       Request Addition
-                    </a>
+                    </Link>
                 </div>
               </div>
             )}
