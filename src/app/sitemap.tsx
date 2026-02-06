@@ -1,4 +1,5 @@
 // app/sitemap.ts
+import { GameAlt } from '@/lib/data';
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -6,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     process.env.NEXT_PUBLIC_DOMAIN_URL || "https://linuxgamesalt.com";
 
   // Define your core static routes
-  const staticRoutes = ['', '/privacy', '/terms', '/contact'].map((route) => ({
+  const staticRoutes = ['', 'browse', '/about', '/privacy', '/terms', '/contact'].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
@@ -16,9 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Example: Dynamic Game Routes
   // In a real scenario, you'd fetch your database of "Bad Game vs Good Game" pairs
   // const comparisons = await getPopularComparisons();
-  const dynamicRoutes = [
-    { badId: '214490', goodId: '550' }, // Example: Dead Island vs L4D2
-  ].map((pair) => ({
+  const dynamicRoutes = GameAlt.map((pair) => ({
     url: `${siteUrl}/compare/${pair.badId}/${pair.goodId}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
