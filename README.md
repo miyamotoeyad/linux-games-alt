@@ -23,7 +23,6 @@
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/) with `bg-linear` utilities.
 - **Icons:** [Remix Icon](https://remixicon.com/) (React Icons)
 - **SEO:** Dynamic Metadata API with JSON-LD Structured Data.
-- **Animation:** Framer Motion (Targeted for interactive modules).
 
 ---
 
@@ -63,7 +62,6 @@ Open [http://localhost:3000](http://localhost:3000) to see the mission in action
 ├── app/                # Next.js App Router (Pages, Layouts)
 ├── components/         # Reusable Tactical UI components
 ├── public/             # Static assets and llms.txt
-├── styles/             # Global CSS and Tailwind configurations
 └── lib/                # API utilities and data fetching
 
 ```
@@ -85,6 +83,4 @@ Join the **Nexus** to contribute patches or report compatibility updates:
 
 
 ### Deployment Advice
-Since you are using Next.js, this project is optimized for one-click deployment on **Netlify**. 
-
-**Would you like me to create a `CONTRIBUTING.md` file next to help manage community pull requests for your game database?**
+Since you are using Next.js, this project is optimized for one-click deployment on **Netlify**.
