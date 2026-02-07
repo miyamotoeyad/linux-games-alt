@@ -2,8 +2,7 @@ import { getSteamGame } from "@/lib/SteamData";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  RiArrowRightSLine, 
-  RiStarFill, 
+  RiArrowRightSLine,
   RiPriceTag3Line, 
   RiShieldKeyholeLine,
   RiDashboard3Line
@@ -37,14 +36,12 @@ export default async function GameCard({ unsupportedId, alternativeId, antiCheat
   if (!badGame || !goodGame) return null;
 
   return (
-    /* THE MAIN LINK: Points to the comparison route */
     <Link 
       href={`/compare/${unsupportedId}/${alternativeId}`}
       className="group block relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900/20 backdrop-blur-sm transition-all hover:border-indigo-500/40 hover:bg-zinc-900/40"
     >
       <div className="grid grid-cols-1 md:grid-cols-[1.2fr_auto_1.2fr] items-center gap-4 p-5">
         
-        {/* LEFT: UNSUPPORTED */}
         <div className="md:flex grid gap-4 opacity-30 grayscale transition-all group-hover:opacity-60">
           <div className="relative shrink-0 overflow-hidden rounded-2xl">
             <Image src={badGame.header_image} width={500} height={296} className="md:h-24 md:w-36 object-cover" alt={badGame.name} />
@@ -55,9 +52,7 @@ export default async function GameCard({ unsupportedId, alternativeId, antiCheat
           </div>
         </div>
 
-        {/* CENTER: THE ACTION HUB */}
         <div className="flex flex-col items-center justify-center relative">
-            {/* Pulsing ring for the "Versus" feel */}
             <div className="absolute inset-0 bg-indigo-500/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
             
             <div className="relative z-10 h-12 w-12 rounded-full bg-zinc-950 border border-white/10 flex items-center justify-center group-hover:border-indigo-500/50 transition-all shadow-2xl">
@@ -69,7 +64,6 @@ export default async function GameCard({ unsupportedId, alternativeId, antiCheat
             </div>
         </div>
 
-        {/* RIGHT: THE UPGRADE */}
         <div className="flex md:flex-row flex-col-reverse justify-end gap-4 text-right">
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-end gap-2 mb-1">

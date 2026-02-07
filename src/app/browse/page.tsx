@@ -6,7 +6,6 @@ import { RiDiscordFill, RiRadarLine, RiSearchEyeLine } from "react-icons/ri";
 import Link from "next/link";
 import { Contact } from "@/lib/SocialContact";
 
-// Upgrade: Glassy Loading Skeleton
 function GridSkeleton() {
   return (
     <div className="grid grid-cols-1 gap-8">
@@ -32,8 +31,6 @@ export default async function BrowsePage({ searchParams }: PageProps) {
   const filteredGames = GameAlt.filter((game) => {
     const qLower = q?.toLowerCase().trim() || "";
 
-    // Create a "search bucket" string of everything we want to match against
-    // We remove spaces and dashes to handle things like "counter strike" vs "counter-strike"
     const searchableText = [game.title, game.genre, ...game.tags]
       .join(" ")
       .toLowerCase()
@@ -43,7 +40,6 @@ export default async function BrowsePage({ searchParams }: PageProps) {
 
     const matchesGenre = !genre || genre === "All" || game.genre === genre;
 
-    // Matches if the query is in our title/tags, OR if the title is in our query
     const matchesSearch = !q || searchableText.includes(cleanedQuery);
 
     return matchesGenre && matchesSearch;
@@ -51,7 +47,6 @@ export default async function BrowsePage({ searchParams }: PageProps) {
 
   return (
     <div className="flex flex-col lg:flex-row gap-12 items-start relative">
-      {/* 1. Filter Sidebar: "The Navigation Deck" */}
       <aside className="lg:sticky lg:top-32 w-full lg:w-72 shrink-0 z-20">
         <div className="p-1 rounded-4xl bg-linear-to-b from-white/10 to-transparent">
           <div className="bg-zinc-950/80 backdrop-blur-2xl rounded-[1.9rem] p-6 border border-white/5">
@@ -66,9 +61,7 @@ export default async function BrowsePage({ searchParams }: PageProps) {
         </div>
       </aside>
 
-      {/* 2. Main Grid Content: "The Asset List" */}
       <div className="flex-1 w-full">
-        {/* Results Header: "Status Bar" style */}
         <div className="mb-8 flex items-center justify-between px-2">
           <div className="flex items-center gap-4">
             <div className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
@@ -80,7 +73,6 @@ export default async function BrowsePage({ searchParams }: PageProps) {
           </div>
         </div>
 
-        {/* The Grid */}
         <div className="grid grid-cols-1 gap-10">
           <Suspense fallback={<GridSkeleton />}>
             {filteredGames.length > 0 ? (
@@ -97,7 +89,6 @@ export default async function BrowsePage({ searchParams }: PageProps) {
                 </div>
               ))
             ) : (
-              /* 3. Empty State: "Intel Missing" */
               <div className="relative py-24 flex flex-col items-center text-center rounded-[3rem] bg-white/5 border border-white/5 overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-b from-indigo-500/5 to-transparent pointer-events-none" />
 

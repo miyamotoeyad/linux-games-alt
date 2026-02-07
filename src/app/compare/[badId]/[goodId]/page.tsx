@@ -7,12 +7,12 @@ import {
 import { Metadata } from "next";
 import { getSteamGame } from "@/lib/SteamData";
 import Image from "next/image";
+import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ badId: string; goodId: string }>;
 }
 
-// --- DYNAMIC SEO GENERATOR ---
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { badId, goodId } = await params;
   const [bad, good] = await Promise.all([getSteamGame(badId), getSteamGame(goodId)]);
@@ -36,8 +36,7 @@ export default async function ComparisonPage({ params }: PageProps) {
       </div>
     );
   }
-  
-  // --- STRUCTURED DATA ---
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -45,8 +44,6 @@ export default async function ComparisonPage({ params }: PageProps) {
     "description": `Tactical alternative to ${badGame.name}.`,
     "image": goodGame.header_image,
   };
-
-  const getPlatforms = (p: any) => Object.keys(p).filter(k => p[k]).join(', ');
 
   return (
     <main className="relative min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden font-sans">
@@ -71,7 +68,6 @@ export default async function ComparisonPage({ params }: PageProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 items-start">
           
-          {/* LEFT SIDE: THE PROBLEM */}
           <div className="relative group p-6 rounded-4xl border border-red-500/20 bg-red-500/2 backdrop-blur-3xl">
              <div className="absolute top-0 left-0 px-4 py-1 bg-red-600 text-white text-[9px] font-black uppercase tracking-widest italic rounded-br-xl">Restricted</div>
              <Image width={1500} height={192} src={badGame.header_image} className="w-full h-48 object-cover rounded-2xl mb-6 grayscale opacity-80" alt={badGame.name} />
@@ -99,7 +95,6 @@ export default async function ComparisonPage({ params }: PageProps) {
                 </div>
              </div>
              
-             {/* Specs List */}
              <div className="space-y-3 text-[11px] font-bold uppercase text-zinc-500">
                 <div className="flex justify-between border-b border-white/5 pb-2">
                   <span>Dev</span><span className="text-zinc-300">{badGame.developers?.[0]}</span>
@@ -110,7 +105,6 @@ export default async function ComparisonPage({ params }: PageProps) {
              </div>
           </div>
 
-          {/* CENTER DIVIDER */}
           <div className="flex lg:flex-col items-center justify-center gap-4 py-8 self-center">
              <div className="h-px lg:h-32 w-24 lg:w-px bg-linear-to-b from-red-500/50 via-indigo-500/50 to-indigo-500/0" />
              <div className="w-14 h-14 rounded-full border border-indigo-500/50 bg-zinc-950 flex items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.4)] z-20">
@@ -119,7 +113,6 @@ export default async function ComparisonPage({ params }: PageProps) {
              <div className="h-px lg:h-32 w-24 lg:w-px bg-linear-to-b from-indigo-500/0 to-transparent" />
           </div>
 
-          {/* RIGHT SIDE: THE SOLUTION */}
           <div className="relative group p-6 rounded-4xl border border-indigo-500/40 bg-indigo-500/5 backdrop-blur-3xl shadow-2xl shadow-indigo-500/10">
              <div className="absolute top-0 right-0 px-4 py-1 bg-indigo-500 text-black text-[9px] font-black uppercase tracking-widest italic rounded-bl-xl">Recommended Alternative</div>
              <Image width={1500} height={192} src={goodGame.header_image} className="w-full h-48 object-cover rounded-2xl mb-6 shadow-2xl ring-1 ring-indigo-500/30" alt={goodGame.name} />
@@ -165,17 +158,16 @@ export default async function ComparisonPage({ params }: PageProps) {
              </div>
 
              <div className="grid grid-cols-2 gap-3 mt-6">
-               <a href={`https://store.steampowered.com/app/${goodId}`} target="_blank" className="flex items-center justify-center gap-2 py-3 rounded-xl bg-indigo-600 text-[10px] font-black uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30">
+               <Link href={`https://store.steampowered.com/app/${goodId}`} target="_blank" className="flex items-center justify-center gap-2 py-3 rounded-xl bg-indigo-600 text-[10px] font-black uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30">
                   <RiDownload2Line size={16} /> Install the Game
-               </a>
+               </Link>
                <a href={`https://www.protondb.com/search?q=${encodeURIComponent(goodGame.name)}`} target="_blank" className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all">
                   <RiPulseLine size={16} className="text-indigo-400" /> Database
                </a>
              </div>
           </div>
         </div>
-
-        {/* DETAILED TECH SPECS */}
+        
         <section className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-8 rounded-3xl bg-white/2 border border-white/5">
                 <div className="flex items-center gap-2 mb-4">

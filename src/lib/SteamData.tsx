@@ -4,12 +4,10 @@ import { SteamApiResponse, SteamGame } from "@/types/steam";
 import { EXTERNAL_GAMES } from "./NonSteamData"; // Ensure this path matches
 
 export async function getSteamGame(id: string): Promise<SteamGame | null> {
-  // 1. Check our manual list first
   if (EXTERNAL_GAMES[id]) {
     return EXTERNAL_GAMES[id];
   }
 
-  // 2. Otherwise, hit the Steam API
   try {
     const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${id}`, {
       next: { revalidate: 86400 } 

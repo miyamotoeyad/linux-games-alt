@@ -5,17 +5,14 @@ import { RiDiscordFill, RiGamepadLine, RiCompass3Line, RiInformationLine, RiArro
 import { Contact } from "@/lib/SocialContact";
 
 export default async function Home() {
-  // 1. Limit the display count for the home page
   const featuredGames = GameAlt.slice(0, 3);
 
   return (
     <main className="relative min-h-screen bg-zinc-950 text-white overflow-hidden selection:bg-indigo-500/30">
       
-      {/* Background Orbs (Kept for depth) */}
       <div className="absolute top-[-10%] right-[-10%] w-150 h-150 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-5%] w-100 h-100 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Hero Section */}
       <section className="relative max-w-7xl mx-auto px-6 pt-32 pb-24">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-indigo-300 text-[9px] font-bold uppercase tracking-[0.2em] mb-8 backdrop-blur-md">
@@ -31,8 +28,8 @@ export default async function Home() {
           </h1>
           
           <p className="mt-8 text-xl md:text-2xl text-zinc-400 max-w-2xl font-medium leading-relaxed">
-            Don't let anti-cheat stop the grind. Discover high-performance, 
-            Linux-native alternatives for the world's most popular games.
+            Don&apos;t let anti-cheat stop the grind. Discover high-performance, 
+            Linux-native alternatives for the world&apos;s most popular games.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-5">
@@ -47,8 +44,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      {/* Featured List Section */}
+      
       <section className="relative max-w-7xl mx-auto px-6 pb-32">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
@@ -62,8 +58,6 @@ export default async function Home() {
             </Link>
         </div>
 
-        {/* --- TRANSPARENT GRADIENT LIST --- */}
-        {/* We use mask-image to fade the bottom cards into the background */}
         <div 
           className="relative grid grid-cols-1 gap-10"
           style={{
@@ -82,7 +76,6 @@ export default async function Home() {
           ))}
         </div>
 
-        {/* "Load More" Overlay Trigger */}
         <div className="flex justify-center -mt-20 relative z-20">
             <Link 
               href="/browse" 
@@ -114,12 +107,6 @@ export default async function Home() {
             </div>
         </div>
       </section>
-
-      <footer className="py-12 border-t border-white/5 text-center bg-black/20">
-          <p className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.5em]">
-            Linux Game Switch // Secure Transmission 2026
-          </p>
-      </footer>
     </main>
   );
 }
