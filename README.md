@@ -3,7 +3,6 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-indigo?style=for-the-badge)](LICENSE)
 
 **Linux Games Alt** is a specialized database and discovery engine designed for migrating players. We provide a tactical interface to cross-reference OS-locked Windows software with community-verified Linux alternatives and ProtonDB compatibility telemetry.
 
@@ -13,13 +12,12 @@
 - **Comparison Engine:** High-fidelity side-by-side analysis of Windows binaries vs. Linux-native alternatives.
 - **ProtonDB Integration:** Real-time telemetry sourcing for Windows games running via Steam's compatibility layer.
 - **Privacy First:** Minimal telemetry, no third-party tracking, and zero-account requirement.
-- **Tactical UI:** A high-performance, dark-mode interface built for scannability and speed.
 
 ---
 
 ## 🚀 Tech Stack
 
-- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/) with `bg-linear` utilities.
 - **Icons:** [Remix Icon](https://remixicon.com/) (React Icons)
 - **SEO:** Dynamic Metadata API with JSON-LD Structured Data.
@@ -28,15 +26,16 @@
 
 ## 📦 Installation & Setup
 
-Ensure you have [Node.js](https://nodejs.org/) installed (v18.17 or later).
+Ensure you have [Node.js](https://nodejs.org/) installed (v24 or later).
 
 1. **Clone the repository:**
-   ```bash
+```bash
    git clone [https://github.com/your-username/linux-games-alt.git](https://github.com/your-username/linux-games-alt.git)
    cd linux-games-alt
+```
 
 
-2. **Install dependencies:**
+3. **Install dependencies:**
 ```bash
 npm install
 # or
@@ -60,7 +59,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the mission in action
 
 ```text
 ├── app/                # Next.js App Router (Pages, Layouts)
-├── components/         # Reusable Tactical UI components
+├── components/         # Reusable UI components
 ├── public/             # Static assets and llms.txt
 └── lib/                # API utilities and data fetching
 
@@ -80,7 +79,3 @@ Join the **Nexus** to contribute patches or report compatibility updates:
 
 * **Discord:** [Join Server](https://discord.gg/Fzzn6BgREs)
 * **Issues:** [GitHub Issue Tracker](https://github.com/eyadkhfarah/linux-games-alt/issues)
-
-
-### Deployment Advice
-Since you are using Next.js, this project is optimized for one-click deployment on **Netlify**.
