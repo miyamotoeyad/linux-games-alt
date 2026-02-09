@@ -1,9 +1,13 @@
 "use client";
 
+import { GameAlt } from "@/lib/data";
 import { useRouter, useSearchParams } from "next/navigation";
 import { RiSearch2Line, RiFilter3Line, RiCloseCircleLine, RiArrowRightSLine } from "react-icons/ri";
 
-const genres = ["All", "Shooter", "Sports", "RPG", "Strategy", "Racing", "Survival"];
+const genres = [
+  "All", 
+  ...Array.from(new Set(GameAlt.flatMap((game) => game.genre))).sort()
+];
 
 export default function FilterSidebar() {
   const router = useRouter();
@@ -25,7 +29,6 @@ export default function FilterSidebar() {
   return (
     <div className="w-full flex flex-col gap-8">
       
-      {/* 1. Search Module */}
       <div className="space-y-3">
         <label className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 ml-2">
           Identity Search
@@ -45,14 +48,13 @@ export default function FilterSidebar() {
         </div>
       </div>
 
-      {/* 2. Genre Selection: "The Archive Categories" */}
       <div className="space-y-4">
         <div className="flex items-center justify-between px-2">
           <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
             <RiFilter3Line className="text-indigo-500" />
             Sector
           </div>
-          {/* Reset Action */}
+          
           {(currentGenre !== "All" || currentSearch) && (
             <button
               onClick={() => router.push("/browse")}
@@ -78,7 +80,6 @@ export default function FilterSidebar() {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                   {/* Selection Dot */}
                    <div className={`w-1.5 h-1.5 rounded-full transition-all ${isActive ? "bg-white scale-125" : "bg-zinc-700 group-hover:bg-zinc-500"}`} />
                    {genre}
                 </div>

@@ -9,7 +9,6 @@ import {
   RiFingerprintLine
 } from "react-icons/ri";
 
-// --- SEO METADATA ---
 export const metadata: Metadata = {
   title: "Privacy Protocol",
   description: "Transparency report regarding data acquisition, tracking policies, and encryption standards for Linux Games Alt.",
@@ -46,13 +45,11 @@ export default function PrivacyPage() {
 
   return (
     <main className="relative min-h-screen bg-zinc-950 text-zinc-200 font-sans">
-      
-      {/* Structural Ambient Glow */}
+
       <div className="absolute top-0 left-0 w-full h-96 bg-linear-to-b from-indigo-500/5 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24">
         
-        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -69,7 +66,6 @@ export default function PrivacyPage() {
           </div>
         </div>
 
-        {/* Policy Information Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden mb-16">
           {sections.map((section, index) => (
             <div key={index} className="bg-zinc-950 p-10 hover:bg-zinc-900/50 transition-colors group">
@@ -86,7 +82,6 @@ export default function PrivacyPage() {
           ))}
         </div>
 
-        {/* Third Party & Rights Footer */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/5">
           <section className="p-8 rounded-3xl bg-white/1 border border-white/5">
             <h4 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4">

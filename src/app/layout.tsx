@@ -4,9 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-// Viewport settings for mobile optimization
 export const viewport: Viewport = {
-  themeColor: "#6366f1", // Indigo-500 to match your UI
+  themeColor: "#6366f1",
   width: "device-width",
   initialScale: 1,
 };
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Linux Games Alt Team" }],
   creator: "Linux Games Alt",
-  metadataBase: new URL(siteUrl), // Use the dynamic site URL
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
   },
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
       "Find playable alternatives for games with restrictive anti-cheats on Linux and Steam Deck.",
     images: [
       {
-        url: "/main.webp", // Ensure this exists in your public folder
+        url: "/main.webp",
         width: 1200,
         height: 630,
         alt: "Linux Games Alt Interface Preview",
@@ -60,7 +59,7 @@ export const metadata: Metadata = {
     title: "Linux Games Alt",
     description:
       "Deploy superior gaming alternatives with verified compatibility.",
-    creator: "@linuxgamesalt", // Replace with your X handle if you have one
+    creator: "@linuxgamesalt",
     images: ["/main.webp"],
   },
   icons: {

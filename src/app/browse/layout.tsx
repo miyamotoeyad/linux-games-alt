@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { RiListCheck2 } from "react-icons/ri";
 import { GameAlt } from "@/lib/data";
 
-// SEO Metadata for the Browse Library
 export const metadata: Metadata = {
   title: "The Library | Browse Gaming Alternatives",
   description: 
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Library | Combat Redirect",
     description: "Access the full database of Linux-compatible gaming alternatives.",
-    images: [{ url: "/og-library.png" }], // Optional: a specific image for the library share
+    images: [{ url: "/main.webp" }],
   },
 };
 
@@ -22,7 +21,6 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
   return (
     <main className="relative min-h-screen bg-zinc-950 text-white selection:bg-indigo-500/30">
       
-      {/* 1. Background Depth (Ambient Orbs) */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-5%] left-[-5%] w-125 h-125 bg-indigo-600/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[10%] right-[-5%] w-100 h-100 bg-purple-600/10 rounded-full blur-[100px]" />
@@ -30,7 +28,6 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-16">
         
-        {/* 2. Modern Library Header */}
         <header className="relative mb-16">
           <div className="flex flex-col mt-14 md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-3xl">
@@ -44,7 +41,6 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
               </p>
             </div>
 
-            {/* Quick Stats Widget */}
             <div className="hidden lg:flex items-center gap-6 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
                 <div className="text-center px-4 border-r border-white/10">
                     <div className="text-2xl font-black text-white leading-none">+{totalGames}</div>
@@ -61,7 +57,6 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
           </div>
         </header>
 
-        {/* 4. Content Area */}
         <section className="relative min-h-100">
            {children}
         </section>

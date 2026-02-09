@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { RiDiscordFill, RiGithubFill, RiGamepadLine } from "react-icons/ri";
+import { RiDiscordFill, RiGithubFill } from "react-icons/ri";
 import { Contact } from "@/lib/SocialContact";
 import Image from "next/image";
 
@@ -8,7 +8,6 @@ export default function Navbar() {
   return (
     <nav className="fixed w-full top-0 z-50 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* LOGO: Sleek & Modern */}
         <Link
           href="/"
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
@@ -24,9 +23,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* ACTIONS */}
         <div className="flex items-center gap-4">
-          {/* NAV LINKS: Premium Menu Style */}
           <div className="hidden md:flex items-center gap-8">
             {["Browse", "About"].map((item) => (
               <Link

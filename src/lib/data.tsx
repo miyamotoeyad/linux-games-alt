@@ -2,9 +2,9 @@ export interface GameMapping {
   badId: string;
   goodId: string;
   title: string;
-  genre: string;
+  genre: string[];
   tags: string[];
-  // NEW: Allows non-Steam games to be defined manually
+
   customData?: {
     name: string;
     imageUrl: string;
@@ -13,17 +13,16 @@ export interface GameMapping {
   antiCheat?: {
     name: string;
     status: string;
-    alternativeFix: string;
+    alternativeFix?: string;
   };
 }
 
 export const GameAlt: GameMapping[] = [
-  // SHOOTERS (Tactical / Competitive)
   {
-    badId: "359550", // Rainbow Six Siege
-    goodId: "730", // Counter-Strike 2
+    badId: "359550",
+    goodId: "730",
     title: "Rainbow Six Siege",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["FPS", "Tactical", "Competitive", "5v5"],
     antiCheat: {
       name: "BattlEye",
@@ -31,11 +30,12 @@ export const GameAlt: GameMapping[] = [
       alternativeFix: "VAC (Native)",
     },
   },
+
   {
-    badId: "valorant", // Maps to EXTERNAL_GAMES["valorant"]
-    goodId: "730", // Counter-Strike 2 (Steam ID)
+    badId: "valorant",
+    goodId: "730",
     title: "Valorant",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["FPS", "Tactical", "Competitive", "5v5", "Free to Play"],
     antiCheat: {
       name: "Vanguard",
@@ -44,12 +44,11 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
-  // --- MOBA ---
   {
-    badId: "league-of-legends", // Maps to EXTERNAL_GAMES["league-of-legends"]
-    goodId: "570", // Dota 2 (Steam ID)
+    badId: "league-of-legends",
+    goodId: "570",
     title: "League of Legends",
-    genre: "MOBA",
+    genre: ["MOBA", "Strategy"],
     tags: ["Strategy", "5v5", "Fantasy", "Competitive"],
     antiCheat: {
       name: "Vanguard",
@@ -58,12 +57,11 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
-  // LARGE SCALE WARFARE
   {
-    badId: "2807960", // Battlefield 6 (2025 Release)
-    goodId: "671860", // BattleBit Remastered
+    badId: "2807960",
+    goodId: "671860",
     title: "Battlefield 6",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["War", "Destruction", "Vehicles", "Large Scale"],
     antiCheat: {
       name: "EA Anti-Cheat",
@@ -72,10 +70,10 @@ export const GameAlt: GameMapping[] = [
     },
   },
   {
-    badId: "1962663", // Call of Duty (HQ/MW3)
-    goodId: "1172470", // Apex Legends
+    badId: "1962663",
+    goodId: "1172470",
     title: "Call of Duty",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["FPS", "Battle Royale", "Fast-Paced"],
     antiCheat: {
       name: "Ricochet",
@@ -83,20 +81,20 @@ export const GameAlt: GameMapping[] = [
       alternativeFix: "EAC (Linux Supported)",
     },
   },
-  
+
   {
     badId: "2456740",
     goodId: "1222670",
     title: "InZo",
-    genre: "Life Simulator",
+    genre: ["Life Simulator"],
     tags: ["Life Simulator", "Open World", "Sandbox", "Life Realistic"],
   },
 
   {
-    badId: "578080", // PUBG: BATTLEGROUNDS
-    goodId: "1172470", // Apex Legends (Reused as it's the best BR alternative)
+    badId: "578080",
+    goodId: "1172470",
     title: "PUBG: BATTLEGROUNDS",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["Battle Royale", "Realistic", "FPS"],
     antiCheat: {
       name: "BattlEye",
@@ -105,12 +103,11 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
-  // --- BATTLE ROYALE ---
   {
-    badId: "fortnite", // Maps to EXTERNAL_GAMES["fortnite"]
-    goodId: "1172470", // Apex Legends (Steam ID)
+    badId: "fortnite",
+    goodId: "1172470",
     title: "Fortnite",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["Battle Royale", "Building", "Third-Person", "Free to Play"],
     antiCheat: {
       name: "EAC / BattlEye",
@@ -120,10 +117,10 @@ export const GameAlt: GameMapping[] = [
   },
 
   {
-    badId: "1085660", // Destiny 2
-    goodId: "553850", // Helldivers 2
+    badId: "1085660",
+    goodId: "553850",
     title: "Destiny 2",
-    genre: "Shooter",
+    genre: ["Shooter"],
     tags: ["FPS", "Sci-fi", "Loot", "Co-op"],
     antiCheat: {
       name: "Bungie Anti-Cheat",
@@ -132,12 +129,11 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
-  // SPORTS
   {
-    badId: "2195250", // EA Sports FC 24
-    goodId: "1665460", // eFootball™
+    badId: "2195250",
+    goodId: "1665460",
     title: "EA SPORTS FC 24",
-    genre: "Sports",
+    genre: ["Sports"],
     tags: ["Soccer", "Football", "Simulation"],
     antiCheat: {
       name: "EA Anti-Cheat",
@@ -146,12 +142,11 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
-  // RPG / SOULS-LIKE
   {
-    badId: "1599340", // Lost Ark
-    goodId: "238960", // Path of Exile
+    badId: "1599340",
+    goodId: "238960",
     title: "Lost Ark",
-    genre: "RPG",
+    genre: ["RPG"],
     tags: ["MMO", "ARPG", "Loot", "Isometric"],
     antiCheat: {
       name: "Easy Anti-Cheat",
@@ -159,23 +154,72 @@ export const GameAlt: GameMapping[] = [
       alternativeFix: "Native / Vulkan",
     },
   },
+
   {
-    badId: "814380", // Sekiro (Note: Sekiro actually works well, but Elden Ring is verified)
-    goodId: "1245620", // Elden Ring
-    title: "Sekiro: Shadows Die Twice",
-    genre: "RPG",
-    tags: ["Souls-like", "Action", "Difficult", "Singleplayer"],
+    badId: "646910",
+    goodId: "1551360",
+    title: "The Crew 2",
+    genre: ["Racing"],
+    tags: ["Racing", "Open World", "Automobile Sim"],
+    antiCheat: {
+      name: "BattlEye AntiCheat",
+      status: "Broke",
+    },
   },
 
-  // SURVIVAL / EXTRACTION
   {
-    badId: "3932890", // Escape from Tarkov (Steam Release)
-    goodId: "252490", // Rust
+    badId: "3932890",
+    goodId: "252490",
     title: "Escape from Tarkov",
-    genre: "Survival",
+    genre: ["Survival"],
     tags: ["Extraction", "Hardcore", "FPS", "Loot"],
     antiCheat: {
       name: "BattlEye",
+      status: "Unsupported",
+      alternativeFix: "EAC (Community Servers)",
+    },
+  },
+
+  {
+    badId: "2488620",
+    goodId: "1066890",
+    title: "F1® 24",
+    genre: ["Racing", "Sports"],
+    tags: ["Racing", "Formula 1", "Simulation"],
+    antiCheat: {
+      name: "EA Anti-Cheat",
+      status: "Unsupported",
+      alternativeFix: "EAC (Community Servers)",
+    },
+  },
+  {
+    badId: "227940",
+    goodId: "236390",
+    title: "Heroes & Generals",
+    genre: ["Shooter", "Strategy"],
+    tags: [
+      "Free to Play",
+      "World War II",
+      "FPS",
+      "Multiplayer",
+      "War",
+      "Shooter",
+      "Action",
+      "First-Person",
+      "Massively Multiplayer",
+      "Strategy",
+      "Tactical",
+      "Co-op",
+      "Historical",
+      "Open World",
+      "Simulation",
+      "Atmospheric",
+      "Adventure",
+      "Indie",
+      "RTS",
+    ],
+    antiCheat: {
+      name: "BattlEye AntiCheat",
       status: "Unsupported",
       alternativeFix: "EAC (Community Servers)",
     },

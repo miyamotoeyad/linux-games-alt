@@ -6,14 +6,11 @@ import { RiCompass3Line, RiDiscordFill, RiHeart2Fill } from "react-icons/ri";
 export default function Footer() {
   return (
     <div className="relative mx-auto bg-zinc-950 text-white overflow-hidden">
-      {/* Subtle Bottom Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* CTA: The "Next Mission" Card */}
       <section className="relative max-w-7xl mx-auto mb-20 px-6">
         <div className="relative group overflow-hidden rounded-[2.5rem] bg-white/5 backdrop-blur-xl border border-white/10 p-12 text-center">
           
-          {/* Animated Background Gradient for the CTA */}
           <div className="absolute inset-0 bg-linear-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
           <div className="relative z-10">
@@ -48,26 +45,15 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* FOOTER: The "System Info" */}
       <footer className="relative max-w-7xl mx-auto px-6 pb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5 pt-10">
-          
-          {/* Logo / Brand */}
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
-              Linux Game Switch // v2.6.0
-            </span>
-          </div>
 
-          {/* Copyright */}
           <div className="text-zinc-500 text-sm font-medium flex items-center gap-2">
             © {new Date().getFullYear()} — Built with 
             <RiHeart2Fill className="text-indigo-500 animate-bounce" /> 
             for the Players
           </div>
 
-          {/* Quick Links */}
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>

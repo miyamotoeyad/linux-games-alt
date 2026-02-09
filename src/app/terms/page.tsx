@@ -1,7 +1,6 @@
 import React from 'react';
 import { Metadata } from "next";
-import { 
-  RiFileTextLine, 
+import {
   RiScales3Line, 
   RiSpam3Line, 
   RiCopyrightLine, 
@@ -9,12 +8,11 @@ import {
   RiHammerLine
 } from "react-icons/ri";
 
-// --- SEO METADATA ---
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "Operating parameters and legal framework for using the Linux Games Alt database and compatibility engine.",
   robots: {
-    index: false, // Usually best to keep legal pages out of primary search results
+    index: false,
     follow: true,
   },
 };
@@ -46,12 +44,10 @@ export default function TermsPage() {
   return (
     <main className="relative min-h-screen bg-zinc-950 text-zinc-200 font-sans">
       
-      {/* Subtle Structural Accents */}
       <div className="absolute top-0 right-0 w-full h-96 bg-linear-to-b from-indigo-500/5 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24">
         
-        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -68,7 +64,6 @@ export default function TermsPage() {
           </div>
         </div>
 
-        {/* Clauses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden mb-16">
           {clauses.map((clause, index) => (
             <div key={index} className="bg-zinc-950 p-10 hover:bg-zinc-900/50 transition-colors group">
@@ -85,7 +80,6 @@ export default function TermsPage() {
           ))}
         </div>
 
-        {/* Critical Notice Box */}
         <div className="p-8 rounded-3xl bg-indigo-500/5 border border-indigo-500/20 flex items-start gap-6">
           <RiErrorWarningLine size={40} className="text-indigo-400 shrink-0" />
           <div>

@@ -1,9 +1,14 @@
+interface SteamGenre {
+  id: string;
+  description: string;
+}
+
 export interface SteamGame {
-  genres: any;
+  genres: SteamGenre[];
   platforms: { windows: boolean; mac: boolean; linux: boolean };
-  publishers: any;
-  developers: any;
-  is_free: any;
+  publishers: string;
+  developers: string;
+  is_free: boolean;
   type: string
   steam_appid: number;
   required_age: number;
@@ -17,7 +22,7 @@ export interface SteamGame {
     final_formatted: string;
     discount_percent: number;
   };
-  recommendations?: { total: number }; // Used as a proxy for "Rating"
+  recommendations?: { total: number };
   metacritic?: { score: number };
 }
 
