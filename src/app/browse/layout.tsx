@@ -6,7 +6,7 @@ import { GameAlt } from "@/lib/data";
 export const metadata: Metadata = {
   title: "The Library | Browse Gaming Alternatives",
   description: 
-    "Explore our complete index of high-fidelity Linux gaming alternatives. Filter by anti-cheat compatibility, performance ratings, and community verification.",
+    "Explore our complete list of high-fidelity Linux gaming alternatives. Filter by anti-cheat compatibility, performance ratings, and community verification.",
   openGraph: {
     title: "The Library | Combat Redirect",
     description: "Access the full database of Linux-compatible gaming alternatives.",
@@ -35,7 +35,7 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
                 THE <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-400 to-zinc-600">LIBRARY</span>
               </h1>
               <p className="text-xl text-zinc-400 font-medium leading-relaxed border-l-4 border-white/5 pl-6">
-                Access the full index of high-fidelity Linux alternatives. 
+                Access the full list of high-fidelity Linux alternatives games. 
                 Filtered by performance, verified by the community, and 
                 optimized for the modern desktop.
               </p>
