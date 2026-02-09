@@ -90,6 +90,7 @@ export default async function ComparisonPage({ params }: PageProps) {
           <GoodGameCard goodGame={goodGame} />
         </div>
 
+        {/* DETAILED TECH SPECS */}
         <section className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-8 rounded-3xl bg-white/2 border border-white/5">
             <div className="flex items-center gap-2 mb-4">

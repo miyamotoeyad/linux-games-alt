@@ -4,7 +4,6 @@ export interface GameMapping {
   title: string;
   genre: string[];
   tags: string[];
-
   customData?: {
     name: string;
     imageUrl: string;

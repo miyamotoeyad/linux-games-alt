@@ -31,11 +31,15 @@ export default async function BrowsePage({ searchParams }: PageProps) {
   const filteredGames = GameAlt.filter((game) => {
     const qLower = q?.toLowerCase().trim() || "";
 
+<<<<<<< HEAD
     const searchableText = [
       game.title,
       ...game.genre,
       ...game.tags,
     ]
+=======
+    const searchableText = [game.title, game.genre, ...game.tags]
+>>>>>>> 002ef72a924ef9d799314d4639dbab1afb1bf25c
       .join(" ")
       .toLowerCase()
       .replace(/[- ]/g, "");
