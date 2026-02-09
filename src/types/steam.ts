@@ -6,8 +6,8 @@ interface SteamGenre {
 export interface SteamGame {
   genres: SteamGenre[];
   platforms: { windows: boolean; mac: boolean; linux: boolean };
-  publishers: string;
-  developers: string;
+  publishers: string[];
+  developers: string[];
   is_free: boolean;
   type: string
   steam_appid: number;
