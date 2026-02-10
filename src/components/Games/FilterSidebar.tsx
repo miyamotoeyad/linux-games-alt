@@ -2,7 +2,7 @@
 
 import { GameAlt } from "@/lib/data";
 import { useRouter, useSearchParams } from "next/navigation";
-import { RiSearch2Line, RiFilter3Line, RiCloseCircleLine, RiArrowRightSLine } from "react-icons/ri";
+import { RiSearch2Line, RiFilter3Line, RiCloseCircleLine, RiArrowRightSLine, RiArrowDownSLine } from "react-icons/ri";
 
 const genres = [
   "All", 
@@ -27,9 +27,9 @@ export default function FilterSidebar() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-8">
+    <div className="w-full flex flex-col gap-6 md:gap-8">
       
-      <div className="space-y-3">
+      <div className="grid space-y-3">
         <label className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 ml-2">
           Search the game
         </label>
@@ -66,7 +66,24 @@ export default function FilterSidebar() {
           )}
         </div>
 
-        <nav className="flex flex-col gap-2">
+        {/* MOBILE DROPDOWN (Hidden on Desktop) */}
+        <div className="relative md:hidden">
+          <select
+            value={currentGenre}
+            onChange={(e) => updateFilter("genre", e.target.value)}
+            className="w-full appearance-none bg-white/5 border border-white/10 text-zinc-300 px-4 py-4 rounded-xl text-xs font-black uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          >
+            {genres.map((genre) => (
+              <option key={genre} value={genre} className="bg-zinc-900 text-white">
+                {genre}
+              </option>
+            ))}
+          </select>
+          <RiArrowDownSLine className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" size={20} />
+        </div>
+
+        {/* DESKTOP NAV (Hidden on Mobile) */}
+        <nav className="hidden md:flex flex-col gap-2">
           {genres.map((genre) => {
             const isActive = currentGenre === genre;
             return (
@@ -83,7 +100,6 @@ export default function FilterSidebar() {
                    <div className={`w-1.5 h-1.5 rounded-full transition-all ${isActive ? "bg-white scale-125" : "bg-zinc-700 group-hover:bg-zinc-500"}`} />
                    {genre}
                 </div>
-                
                 {isActive && <RiArrowRightSLine size={18} className="animate-in fade-in slide-in-from-left-2" />}
               </button>
             );

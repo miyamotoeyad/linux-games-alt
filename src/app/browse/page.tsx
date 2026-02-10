@@ -2,7 +2,7 @@ import { GameAlt } from "@/lib/data";
 import GameCard from "@/components/Games/GameCard";
 import FilterSidebar from "@/components/Games/FilterSidebar";
 import { Suspense } from "react";
-import { RiDiscordFill, RiRadarLine, RiSearchEyeLine } from "react-icons/ri";
+import { RiDiscordFill, RiFilter2Line, RiSearchEyeLine } from "react-icons/ri";
 import Link from "next/link";
 import { Contact } from "@/lib/SocialContact";
 
@@ -56,7 +56,7 @@ export default async function BrowsePage({ searchParams }: PageProps) {
         <div className="p-1 rounded-4xl bg-linear-to-b from-white/10 to-transparent">
           <div className="bg-zinc-950/80 backdrop-blur-2xl rounded-[1.9rem] p-6 border border-white/5">
             <div className="flex items-center gap-2 mb-6 px-2">
-              <RiRadarLine className="text-indigo-500 animate-pulse" />
+              <RiFilter2Line className="text-indigo-500 animate-pulse" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">
                 Filter Games
               </span>
