@@ -4,6 +4,10 @@ export interface GameMapping {
   title: string;
   genre: string[];
   tags: string[];
+  discovery?: string;
+  badStatus: "Borked" | "Bronze";
+  goodStatus: "Native" | "Platinum" | "Gold" | "Silver";
+  rating?: number;
   customData?: {
     name: string;
     imageUrl: string;
@@ -21,6 +25,9 @@ export const GameAlt: GameMapping[] = [
     badId: "359550",
     goodId: "730",
     title: "Rainbow Six Siege",
+    badStatus: "Borked",
+    goodStatus: "Native",
+    rating: 5,
     genre: ["Shooter"],
     tags: ["FPS", "Tactical", "Competitive", "5v5"],
     antiCheat: {
@@ -34,6 +41,9 @@ export const GameAlt: GameMapping[] = [
     badId: "valorant",
     goodId: "730",
     title: "Valorant",
+    badStatus: "Borked",
+    goodStatus: "Native",
+    rating: 4.8,
     genre: ["Shooter"],
     tags: ["FPS", "Tactical", "Competitive", "5v5", "Free to Play"],
     antiCheat: {
@@ -47,6 +57,9 @@ export const GameAlt: GameMapping[] = [
     badId: "league-of-legends",
     goodId: "570",
     title: "League of Legends",
+    badStatus: "Borked",
+    goodStatus: "Native",
+    rating: 4.5,
     genre: ["MOBA", "Strategy"],
     tags: ["Strategy", "5v5", "Fantasy", "Competitive"],
     antiCheat: {
@@ -60,6 +73,9 @@ export const GameAlt: GameMapping[] = [
     badId: "2807960",
     goodId: "671860",
     title: "Battlefield 6",
+    badStatus: "Borked",
+    goodStatus: "Gold",
+    rating: 4.5,
     genre: ["Shooter"],
     tags: ["War", "Destruction", "Vehicles", "Large Scale"],
     antiCheat: {
@@ -72,6 +88,9 @@ export const GameAlt: GameMapping[] = [
     badId: "1962663",
     goodId: "1172470",
     title: "Call of Duty",
+    badStatus: "Borked",
+    goodStatus: "Silver",
+    rating: 4.5,
     genre: ["Shooter"],
     tags: ["FPS", "Battle Royale", "Fast-Paced"],
     antiCheat: {
@@ -82,17 +101,12 @@ export const GameAlt: GameMapping[] = [
   },
 
   {
-    badId: "2456740",
-    goodId: "1222670",
-    title: "InZo",
-    genre: ["Life Simulator"],
-    tags: ["Life Simulator", "Open World", "Sandbox", "Life Realistic"],
-  },
-
-  {
     badId: "578080",
     goodId: "1172470",
     title: "PUBG: BATTLEGROUNDS",
+    badStatus: "Borked",
+    goodStatus: "Silver",
+    rating: 4.5,
     genre: ["Shooter"],
     tags: ["Battle Royale", "Realistic", "FPS"],
     antiCheat: {
@@ -106,12 +120,15 @@ export const GameAlt: GameMapping[] = [
     badId: "fortnite",
     goodId: "1172470",
     title: "Fortnite",
+    badStatus: "Borked",
+    goodStatus: "Gold",
+    rating: 4.2,
     genre: ["Shooter"],
     tags: ["Battle Royale", "Building", "Third-Person", "Free to Play"],
     antiCheat: {
       name: "EAC / BattlEye",
       status: "Kernel Hardlock",
-      alternativeFix: "Apex Legends (Linux Verified)",
+      alternativeFix: "Apex Legends (EAC Enabled)",
     },
   },
 
@@ -119,12 +136,15 @@ export const GameAlt: GameMapping[] = [
     badId: "1085660",
     goodId: "553850",
     title: "Destiny 2",
+    badStatus: "Borked",
+    goodStatus: "Platinum",
+    rating: 4.7,
     genre: ["Shooter"],
     tags: ["FPS", "Sci-fi", "Loot", "Co-op"],
     antiCheat: {
       name: "Bungie Anti-Cheat",
       status: "Unstable",
-      alternativeFix: "Helldivers 2 (Native Linux, Co-op Shooter)",
+      alternativeFix: "Helldivers 2 (Proton Platinum)",
     },
   },
 
@@ -132,6 +152,9 @@ export const GameAlt: GameMapping[] = [
     badId: "2195250",
     goodId: "1665460",
     title: "EA SPORTS FC 24",
+    badStatus: "Borked",
+    goodStatus: "Gold",
+    rating: 4.5,
     genre: ["Sports"],
     tags: ["Soccer", "Football", "Simulation"],
     antiCheat: {
@@ -141,23 +164,62 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
+  // {
+  //   badId: "1599340",
+  //   goodId: "238960",
+  //   title: "Lost Ark",
+  //   badStatus: "Bronze",
+  //   goodStatus: "Silver",
+  //   rating: 4.5,
+  //   genre: ["RPG"],
+  //   tags: ["MMO", "ARPG", "Loot", "Isometric"],
+  //   antiCheat: {
+  //     name: "Easy Anti-Cheat",
+  //     status: "Not Enabled",
+  //     alternativeFix: "Native / Vulkan",
+  //   },
+  // },
+
   {
-    badId: "1599340",
-    goodId: "238960",
-    title: "Lost Ark",
-    genre: ["RPG"],
-    tags: ["MMO", "ARPG", "Loot", "Isometric"],
-    antiCheat: {
-      name: "Easy Anti-Cheat",
-      status: "Not Enabled",
-      alternativeFix: "Native / Vulkan",
-    },
+    badId: "3240220",
+    goodId: "55230",
+    badStatus: "Borked",
+    goodStatus: "Platinum",
+    genre: ["Open World", "Third-Person", "Vehicles"],
+    tags: [
+      "Open World",
+      "Action",
+      "Sexual Content",
+      "Multiplayer",
+      "Crime",
+      "Mature",
+      "Shooter",
+      "Third Person",
+      "First-Person",
+      "Adventure",
+      "Automobile Sim",
+      "Racing",
+      "Third-Person Shooter",
+      "Sandbox",
+      "Funny",
+      "Atmospheric",
+      "Comedy",
+      "Moddable",
+      "PvP",
+      "Co-op",
+    ],
+    title: "GTA V",
+    rating: 5,
+    discovery:
+      "GTA Online's implementation of BattlEye Anti-Cheat is currently not enabled for Proton, preventing access to multiplayer on Linux and Steam Deck.",
   },
 
   {
     badId: "646910",
     goodId: "1551360",
     title: "The Crew 2",
+    badStatus: "Borked",
+    goodStatus: "Gold",
     genre: ["Racing"],
     tags: ["Racing", "Open World", "Automobile Sim"],
     antiCheat: {
@@ -170,6 +232,8 @@ export const GameAlt: GameMapping[] = [
     badId: "3932890",
     goodId: "252490",
     title: "Escape from Tarkov",
+    badStatus: "Bronze",
+    goodStatus: "Silver",
     genre: ["Survival"],
     tags: ["Extraction", "Hardcore", "FPS", "Loot"],
     antiCheat: {
@@ -180,9 +244,43 @@ export const GameAlt: GameMapping[] = [
   },
 
   {
+    badId: "yandere-simulator",
+    goodId: "2527500",
+    title: "Yandere Simulator",
+    badStatus: "Borked",
+    goodStatus: "Platinum",
+    genre: ["Action" , "Simulation", "Single-player"],
+    tags: ["Single-player", "Stealth"],
+    discovery: "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer."
+  },
+  {
+    badId: "yandere-simulator",
+    goodId: "1388880",
+    title: "Yandere Simulator",
+    badStatus: "Borked",
+    goodStatus: "Platinum",
+    genre: ["Action" , "Simulation", "Single-player"],
+    tags: ["Single-player", "Stealth"],
+    discovery: "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer."
+  },
+
+  {
+    badId: "yandere-simulator",
+    goodId: "863550",
+    title: "Yandere Simulator",
+    badStatus: "Borked",
+    goodStatus: "Platinum",
+    genre: ["Action" , "Simulation", "Single-player"],
+    tags: ["Single-player", "Stealth"],
+    discovery: "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer."
+  },
+
+  {
     badId: "2488620",
     goodId: "1066890",
     title: "F1® 24",
+    badStatus: "Borked",
+    goodStatus: "Native",
     genre: ["Racing", "Sports"],
     tags: ["Racing", "Formula 1", "Simulation"],
     antiCheat: {
@@ -195,6 +293,8 @@ export const GameAlt: GameMapping[] = [
     badId: "227940",
     goodId: "236390",
     title: "Heroes & Generals",
+    badStatus: "Borked",
+    goodStatus: "Native",
     genre: ["Shooter", "Strategy"],
     tags: [
       "Free to Play",

@@ -47,7 +47,7 @@ export default async function GameCard({ unsupportedId, alternativeId, antiCheat
             <Image src={badGame.header_image} width={500} height={296} className="md:h-24 md:w-36 object-cover" alt={badGame.name} />
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="font-black text-zinc-300 truncate text-sm uppercase tracking-tighter">{badGame.name}</h3>
+            <h3 className="font-black text-zinc-300 truncate text-lg uppercase tracking-tighter">{badGame.name}</h3>
             <AntiCheatBadge status={antiCheat} />
           </div>
         </div>

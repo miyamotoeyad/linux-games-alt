@@ -1,8 +1,14 @@
-import { RiArrowRightSLine, RiGroupLine, RiComputerLine } from "react-icons/ri";
+import {
+  RiArrowRightSLine,
+  RiGroupLine,
+  RiComputerLine,
+} from "react-icons/ri";
 import { Metadata } from "next";
 import { getSteamGame } from "@/lib/SteamData";
+import { GameAlt } from "@/lib/data";
 import BadGameCard from "@/components/Compare/BadGameCard";
 import GoodGameCard from "@/components/Compare/GoodGameCard";
+import Discloser from "@/components/Compare/Discloser";
 
 interface PageProps {
   params: Promise<{ badId: string; goodId: string }>;
@@ -31,6 +37,10 @@ export default async function ComparisonPage({ params }: PageProps) {
     getSteamGame(badId),
     getSteamGame(goodId),
   ]);
+
+ const mapping = GameAlt.find(
+  (alt) => String(alt.badId) === String(badId) && String(alt.goodId) === String(goodId)
+);
 
   if (!badGame || !goodGame) {
     return (
@@ -73,8 +83,10 @@ export default async function ComparisonPage({ params }: PageProps) {
           </p>
         </header>
 
+        <Discloser mapping={mapping}/>
+
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 items-start">
-          <BadGameCard badGame={badGame} />
+          <BadGameCard badGame={badGame} mapping={mapping} />
 
           <div className="flex lg:flex-col items-center justify-center gap-4 py-8 self-center">
             <div className="h-px lg:h-32 w-24 lg:w-px bg-linear-to-b from-red-500/50 via-indigo-500/50 to-indigo-500/0" />
@@ -87,7 +99,7 @@ export default async function ComparisonPage({ params }: PageProps) {
             <div className="h-px lg:h-32 w-24 lg:w-px bg-linear-to-b from-indigo-500/0 to-transparent" />
           </div>
 
-          <GoodGameCard goodGame={goodGame} />
+          <GoodGameCard goodGame={goodGame} mapping={mapping} />
         </div>
 
         {/* DETAILED TECH SPECS */}

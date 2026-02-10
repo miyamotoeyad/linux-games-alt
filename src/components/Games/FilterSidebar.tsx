@@ -31,7 +31,7 @@ export default function FilterSidebar() {
       
       <div className="space-y-3">
         <label className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 ml-2">
-          Identity Search
+          Search the game
         </label>
         <div className="relative group">
           <RiSearch2Line 
@@ -40,7 +40,7 @@ export default function FilterSidebar() {
           />
           <input
             type="text"
-            placeholder="Find Game..."
+            placeholder="Find Game or genres..."
             defaultValue={currentSearch}
             onChange={(e) => updateFilter("q", e.target.value)}
             className="w-full bg-white/5 border border-white/10 text-sm rounded-2xl pl-12 pr-4 py-4 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/40 focus:bg-zinc-900/80 transition-all text-white placeholder:text-zinc-600 font-bold"

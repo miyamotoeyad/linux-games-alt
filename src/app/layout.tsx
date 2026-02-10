@@ -15,7 +15,7 @@ const siteUrl =
 
 export const metadata: Metadata = {
   title: {
-    default: "Linux Games Alt | Tactical Gaming Alternatives",
+    default: "Linux Games Alt | Best Linux Gaming Alternatives",
     template: "%s | Linux Games Alt",
   },
   description:

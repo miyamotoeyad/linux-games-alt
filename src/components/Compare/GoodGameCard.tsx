@@ -1,3 +1,4 @@
+import { GameMapping } from "@/lib/data";
 import { SteamGame } from "@/types/steam";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,8 +12,18 @@ import {
   RiExternalLinkLine,
 } from "react-icons/ri";
 
-export default function GoodGameCard({ goodGame }: { goodGame: SteamGame }) {
+export default function GoodGameCard({ goodGame, mapping }: { goodGame: SteamGame, mapping?: GameMapping }) {
   const isNonSteam = goodGame.steam_appid === 0;
+
+  const getStatusColor = (status?: string) => {
+    switch (status) {
+      case "Native": return "text-blue-400 border-blue-500/30 bg-blue-500/10";
+      case "Platinum": return "text-purple-400 border-purple-500/30 bg-purple-500/10";
+      case "Gold": return "text-yellow-400 border-yellow-500/30 bg-yellow-500/10";
+      case "Silver": return "text-gray-400 border-gray-500/30 bg-gray-500/10";
+      default: return "text-emerald-400 border-emerald-500/30 bg-emerald-500/10";
+    }
+  };
 
   return (
     <div className="relative group p-6 rounded-4xl border border-indigo-500/40 bg-indigo-500/5 backdrop-blur-3xl shadow-2xl shadow-indigo-500/10">
@@ -59,27 +70,33 @@ export default function GoodGameCard({ goodGame }: { goodGame: SteamGame }) {
         </div>
         <div className="bg-indigo-500/10 p-3 rounded-xl border border-indigo-500/20">
           <span className="text-[8px] font-black text-indigo-300 uppercase mb-1 flex items-center gap-1">
-            <RiUserVoiceLine /> Trust Rating
+            <RiUserVoiceLine /> Recommendation Score
           </span>
           <div className="flex items-center gap-1.5">
             <RiStarFill className="text-yellow-400" />
             <span className="text-xl font-black text-white">
-              {goodGame.metacritic?.score ?? "90+"}
+              {mapping?.rating ? `${mapping.rating}/5` : (goodGame.metacritic?.score ?? "N/A")}
             </span>
-            <span className="text-[10px] text-emerald-400 font-bold">POS</span>
           </div>
         </div>
       </div>
 
-      <div className="space-y-3 text-[11px] font-bold uppercase">
+      <div className="space-y-3 text-[11px] font-bold uppercase text-zinc-500">
         <div className="flex justify-between border-b border-white/5 pb-2">
           <span className="text-zinc-500">Developer</span>
           <span className="text-indigo-300">{goodGame.developers?.[0]}</span>
         </div>
+        <div className="flex justify-between border-b border-white/5 pb-2">
+          <span>Release</span>
+
+          <span className="text-zinc-300">{goodGame.release_date?.date}</span>
+        </div>
 
         <div className="flex justify-between border-b border-white/5 pb-2">
           <span className="text-zinc-500">Compatibility</span>
-          <span className="text-emerald-400">Steam Deck / Linux Verified</span>
+          <span className={`px-2 py-0.5 rounded border ${getStatusColor(mapping?.goodStatus)}`}>
+            {mapping?.goodStatus || "Verified"}
+          </span>
         </div>
       </div>
 

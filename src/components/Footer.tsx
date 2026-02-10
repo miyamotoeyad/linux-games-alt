@@ -25,7 +25,7 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Link 
                 href="/browse" 
-                className="flex items-center gap-3 bg-white text-black px-10 py-4 rounded-2xl font-black uppercase whitespace-nowrap tracking-tight hover:bg-indigo-500 hover:text-white transition-all hover:scale-105 active:scale-95 shadow-xl shadow-white/5"
+                className="PrimaryBtn"
               >
                 <RiCompass3Line size={22} />
                 Browse Library

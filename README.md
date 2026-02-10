@@ -10,7 +10,7 @@
 ## 🛠 Features
 
 - **Comparison Engine:** High-fidelity side-by-side analysis of Windows binaries vs. Linux-native alternatives.
-- **ProtonDB Integration:** Real-time telemetry sourcing for Windows games running via Steam's compatibility layer.
+- **ProtonDB Base:** Real-time telemetry sourcing for Windows games running via Steam's compatibility layer.
 - **Privacy First:** Minimal telemetry, no third-party tracking, and zero-account requirement.
 
 ---
@@ -18,9 +18,8 @@
 ## 🚀 Tech Stack
 
 - **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/) with `bg-linear` utilities.
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Icons:** [Remix Icon](https://remixicon.com/) (React Icons)
-- **SEO:** Dynamic Metadata API with JSON-LD Structured Data.
 
 ---
 
@@ -58,8 +57,8 @@ Open [http://localhost:3000](http://localhost:3000) to see the mission in action
 ```text
 ├── app/                # Next.js App Router (Pages, Layouts)
 ├── components/         # Reusable UI components
-├── public/             # Static assets and llms.txt
-└── lib/                # API utilities and data fetching
+├── public/             # Static assets
+└── lib/                # API utilities and data fetching "Where data.tsx is here"
 ```
 
 ---

@@ -19,12 +19,7 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
   const totalGames = GameAlt.length;
   
   return (
-    <main className="relative min-h-screen bg-zinc-950 text-white selection:bg-indigo-500/30">
-      
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-[-5%] left-[-5%] w-125 h-125 bg-indigo-600/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[-5%] w-100 h-100 bg-purple-600/10 rounded-full blur-[100px]" />
-      </div>
+    <main className="relative min-h-screen bg-zinc-950 text-white">
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-16">
         
@@ -32,7 +27,7 @@ export default function BrowseLayout({ children }: { children: React.ReactNode }
           <div className="flex flex-col mt-14 md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-3xl">
               <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase mb-6">
-                THE <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-400 to-zinc-600">LIBRARY</span>
+                THE <span className="text-indigo-500">LIBRARY</span>
               </h1>
               <p className="text-xl text-zinc-400 font-medium leading-relaxed border-l-4 border-white/5 pl-6">
                 Access the full list of high-fidelity Linux alternatives games. 

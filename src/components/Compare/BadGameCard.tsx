@@ -1,23 +1,31 @@
 // src/components/Compare/BadGameCard.tsx
 
+import { GameMapping } from "@/lib/data";
 import { SteamGame } from "@/types/steam";
 import Image from "next/image";
 import Link from "next/link";
-import { RiAlertLine, RiPulseLine, RiStarFill } from "react-icons/ri";
+import { RiAlertLine, RiPulseLine } from "react-icons/ri";
 
-export default function BadGameCard({ badGame }: { badGame: SteamGame }) {
+export default function BadGameCard({ badGame, mapping }: { badGame: SteamGame, mapping?: GameMapping }) {
   const isNonSteam = badGame.steam_appid === 0;
+
+  const getStatusColor = (status?: string) => {
+    switch (status) {
+      case "Borked": return "text-red-400 border-red-500/30 bg-red-500/10";
+      case "Bronze": return "text-amber-400 border-amber-500/30 bg-amber-500/10";
+    }
+  };
 
   return (
     <div className="relative group p-6 rounded-4xl border border-red-500/20 bg-red-500/2 backdrop-blur-3xl">
-      <div className="absolute top-0 left-0 px-4 py-1 bg-red-600 text-white text-[9px] font-black uppercase tracking-widest italic rounded-br-xl">
-        Restricted
+      <div className="absolute top-0 left-0 px-4 py-1 bg-red-600 text-white text-[9px] font-black uppercase tracking-widest italic rounded-br-xl flex gap-2 items-center">
+        <RiAlertLine /> {mapping?.badStatus || "Restricted"}
       </div>
       <Image
         width={600}
         height={300}
         src={badGame.header_image}
-        className="w-full h-48 object-cover rounded-2xl mb-6 grayscale opacity-80"
+        className="w-full h-48 object-cover rounded-2xl mb-6 shadow-2xl grayscale opacity-80 ring-1 ring-red-500/30"
         alt={badGame.name}
       />
 
@@ -53,14 +61,13 @@ export default function BadGameCard({ badGame }: { badGame: SteamGame }) {
 
         <div className="bg-white/5 p-3 rounded-xl border border-white/5">
           <span className="block text-[8px] font-black text-zinc-500 uppercase mb-1">
-            Metacritic
+            Proton Status
           </span>
-
           <div className="flex items-center gap-1.5">
-            <RiStarFill className="text-red-500/50" />
-
-            <span className="text-xl font-black text-zinc-300">
-              {badGame.metacritic?.score ?? "??"}
+            <span className={`text-xl font-black uppercase ${
+              mapping?.badStatus === 'Borked' ? 'text-red-500' : 'text-amber-400'
+            }`}>
+              {mapping?.badStatus ?? "???"}
             </span>
           </div>
         </div>
@@ -68,15 +75,22 @@ export default function BadGameCard({ badGame }: { badGame: SteamGame }) {
 
       <div className="space-y-3 text-[11px] font-bold uppercase text-zinc-500">
         <div className="flex justify-between border-b border-white/5 pb-2">
-          <span>Dev</span>
+          <span>Developer</span>
 
-          <span className="text-zinc-300">{badGame.developers?.[0]}</span>
+          <span className="text-red-300">{badGame.developers?.map((dev) => dev)}</span>
         </div>
 
         <div className="flex justify-between border-b border-white/5 pb-2">
           <span>Release</span>
 
           <span className="text-zinc-300">{badGame.release_date?.date}</span>
+        </div>
+
+        <div className="flex justify-between border-b border-white/5 pb-2">
+          <span className="text-zinc-500">Compatibility</span>
+          <span className={`px-2 py-0.5 rounded border ${getStatusColor(mapping?.badStatus)}`}>
+            {mapping?.badStatus ?? "???"}
+          </span>
         </div>
       </div>
 

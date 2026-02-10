@@ -9,12 +9,13 @@ import {
   RiArrowRightUpLine,
 } from "react-icons/ri";
 import { Contact } from "@/lib/SocialContact";
+import FQA from "@/components/Home/FQA";
 
 export default async function Home() {
   const featuredGames = GameAlt.slice(0, 3);
 
   return (
-    <main className="relative min-h-screen bg-zinc-950 text-white overflow-hidden selection:bg-indigo-500/30">
+    <main className="relative min-h-screen bg-zinc-950 text-white overflow-x-clip selection:bg-indigo-500/30">
       <div className="absolute top-[-10%] right-[-10%] w-150 h-150 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-5%] w-100 h-100 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
 
@@ -43,14 +44,14 @@ export default async function Home() {
               className="group px-10 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black uppercase tracking-tight transition-all hover:scale-105 active:scale-95 shadow-xl shadow-indigo-600/25 flex items-center gap-3"
             >
               <RiCompass3Line size={24} />
-              Explore Database
+              Explore Recommendations
             </Link>
             <Link
               href="/about"
               className="px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-2xl font-black uppercase tracking-tight transition-all flex items-center gap-3 backdrop-blur-sm"
             >
               <RiInformationLine size={24} />
-              Briefing
+              Who we are?
             </Link>
           </div>
         </div>
@@ -59,16 +60,15 @@ export default async function Home() {
       <section className="relative max-w-7xl mx-auto px-6 pb-32">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <h2 className="text-4xl font-black uppercase tracking-tight">
+            <h2 className="text-3xl md:text-5xl italic font-black uppercase tracking-tight">
               Priority <span className="text-indigo-500">Swaps</span>
             </h2>
-            <div className="h-1 w-12 bg-indigo-600 mt-2 rounded-full" />
           </div>
           <Link
             href="/browse"
             className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-indigo-400 transition-colors"
           >
-            View Full Archive <RiArrowRightUpLine size={16} />
+            View Full Library <RiArrowRightUpLine size={16} />
           </Link>
         </div>
 
@@ -137,12 +137,28 @@ export default async function Home() {
                 <p className="text-zinc-400 leading-relaxed font-medium">
                   Our website are following to gaming community reports. We
                   track the{" "}
-                  <strong className="text-purple-500 italic">Anti-Cheat Wall</strong>{" "}
+                  <strong className="text-purple-500 italic">
+                    Anti-Cheat Wall
+                  </strong>{" "}
                   so you don&apos;t have to. When a game blocks Linux, we find
                   the alternative that respects your OS.
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* FQA Linux Games Alt */}
+        <section className="relative mt-32 py-24 max-w-7xl mx-auto grid grid-cols-1 gap-14 md:grid-cols-3 md:px-0 px-6">
+          <div className="lg:sticky top-32 h-fit self-start">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter md:mb-0 mb-14 italic">
+              Questions <br />
+              <span className="text-indigo-500">You may ask</span>
+            </h2>
+          </div>
+
+          <div className="w-full col-span-2">
+            <FQA />
           </div>
         </section>
 
@@ -160,12 +176,12 @@ export default async function Home() {
               The archive grows through community field reports. Suggest a new
               swap on our Discord.
             </p>
-            <a
+            <Link
               href={Contact.discord}
-              className="px-12 py-5 bg-white text-black hover:bg-indigo-600 hover:text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-2xl active:scale-95"
+              className="PrimaryBtn"
             >
               Connect to Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>
