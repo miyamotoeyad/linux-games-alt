@@ -1,7 +1,7 @@
 import { Contact } from "@/lib/SocialContact";
 import Link from "next/link";
 import React from "react";
-import { RiCompass3Line, RiDiscordFill, RiHeart2Fill } from "react-icons/ri";
+import { RiCompass3Line, RiDiscordFill } from "react-icons/ri";
 
 export default function Footer() {
   return (
@@ -49,9 +49,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5 pt-10">
 
           <div className="text-zinc-500 text-sm font-medium flex items-center gap-2">
-            © {new Date().getFullYear()} — Built with 
-            <RiHeart2Fill className="text-indigo-500 animate-bounce" /> 
-            for the Players
+            © {new Date().getFullYear()} — Built By Player for the Players
           </div>
 
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
