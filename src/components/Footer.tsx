@@ -5,7 +5,7 @@ import { RiCompass3Line, RiDiscordFill } from "react-icons/ri";
 
 export default function Footer() {
   return (
-    <div className="relative mx-auto  text-white overflow-hidden">
+    <div className="relative mx-auto text-white overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <section className="relative max-w-7xl mx-auto mb-20 px-6">

@@ -23,8 +23,8 @@ export default function BrowseLayout({
   const totalGames = GameAlt.length;
 
   return (
-    <main className="relative min-h-screen max-w-7xl mx-auto px-6 mb-14 md:px-10 text-white">
-        <header className="relative mb-16">
+    <main className="relative min-h-screen max-w-7xl mx-auto px-6 mb-14 text-white">
+        <header className="relative my-16">
           <div className="flex flex-col mt-14 md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-3xl">
               <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase mb-6">
