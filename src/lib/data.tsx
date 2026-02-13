@@ -7,6 +7,7 @@ export interface GameMapping {
   discovery?: string;
   badStatus: "Borked" | "Bronze";
   goodStatus: "Native" | "Platinum" | "Gold" | "Silver";
+  deckVerified: "Verified" | "Playable" | "Unsupported" | "Unknown";
   rating?: number;
   customData?: {
     name: string;
@@ -27,6 +28,7 @@ export const GameAlt: GameMapping[] = [
     title: "Rainbow Six Siege",
     badStatus: "Borked",
     goodStatus: "Native",
+    deckVerified: "Playable",
     rating: 5,
     genre: ["Shooter"],
     tags: ["FPS", "Tactical", "Competitive", "5v5"],
@@ -41,6 +43,7 @@ export const GameAlt: GameMapping[] = [
     badId: "valorant",
     goodId: "730",
     title: "Valorant",
+    deckVerified: "Playable",
     badStatus: "Borked",
     goodStatus: "Native",
     rating: 4.8,
@@ -59,6 +62,7 @@ export const GameAlt: GameMapping[] = [
     title: "League of Legends",
     badStatus: "Borked",
     goodStatus: "Native",
+    deckVerified: "Playable",
     rating: 4.5,
     genre: ["MOBA", "Strategy"],
     tags: ["Strategy", "5v5", "Fantasy", "Competitive"],
@@ -75,6 +79,7 @@ export const GameAlt: GameMapping[] = [
     title: "Battlefield 6",
     badStatus: "Borked",
     goodStatus: "Gold",
+    deckVerified: "Playable",
     rating: 4.5,
     genre: ["Shooter"],
     tags: ["War", "Destruction", "Vehicles", "Large Scale"],
@@ -90,6 +95,7 @@ export const GameAlt: GameMapping[] = [
     title: "Call of Duty",
     badStatus: "Borked",
     goodStatus: "Silver",
+    deckVerified: "Unsupported",
     rating: 4.5,
     genre: ["Shooter"],
     tags: ["FPS", "Battle Royale", "Fast-Paced"],
@@ -106,6 +112,7 @@ export const GameAlt: GameMapping[] = [
     title: "PUBG: BATTLEGROUNDS",
     badStatus: "Borked",
     goodStatus: "Silver",
+    deckVerified: "Unsupported",
     rating: 4.5,
     genre: ["Shooter"],
     tags: ["Battle Royale", "Realistic", "FPS"],
@@ -122,6 +129,7 @@ export const GameAlt: GameMapping[] = [
     title: "Fortnite",
     badStatus: "Borked",
     goodStatus: "Gold",
+    deckVerified: "Unsupported",
     rating: 4.2,
     genre: ["Shooter"],
     tags: ["Battle Royale", "Building", "Third-Person", "Free to Play"],
@@ -138,6 +146,7 @@ export const GameAlt: GameMapping[] = [
     title: "Destiny 2",
     badStatus: "Borked",
     goodStatus: "Platinum",
+    deckVerified: "Playable",
     rating: 4.7,
     genre: ["Shooter"],
     tags: ["FPS", "Sci-fi", "Loot", "Co-op"],
@@ -148,12 +157,46 @@ export const GameAlt: GameMapping[] = [
     },
   },
 
+  // {
+  //   badId: "2456740",
+  //   goodId: "4025700",
+  //   title: "Inzo",
+  //   badStatus: "Bronze",
+  //   goodStatus: "Gold",
+  //   deckVerified: "Playable",
+  //   rating: 4.7,
+  //   genre: ["Multiplayer", "Life Sim", "Simulation", "Third Person"],
+  //   tags: [
+  //     "Casual",
+  //     "Life Sim",
+  //     "Multiplayer",
+  //     "Free to Play",
+  //     "Cute",
+  //     "Artificial Intelligence",
+  //     "City Builder",
+  //     "Relaxing",
+  //     "Immersive Sim",
+  //     "Simulation",
+  //     "3D Platformer",
+  //     "Character Customization",
+  //     "Cartoony",
+  //     "Third Person",
+  //     "Funny",
+  //     "Realistic",
+  //     "Nature",
+  //     "Singleplayer",
+  //     "Atmospheric",
+  //     "Story Rich",
+  //   ],
+  // },
+
   {
     badId: "2195250",
     goodId: "1665460",
     title: "EA SPORTS FC 24",
     badStatus: "Borked",
     goodStatus: "Gold",
+    deckVerified: "Playable",
     rating: 4.5,
     genre: ["Sports"],
     tags: ["Soccer", "Football", "Simulation"],
@@ -185,6 +228,7 @@ export const GameAlt: GameMapping[] = [
     goodId: "55230",
     badStatus: "Borked",
     goodStatus: "Platinum",
+    deckVerified: "Playable",
     genre: ["Open World", "Third-Person", "Vehicles"],
     tags: [
       "Open World",
@@ -212,6 +256,10 @@ export const GameAlt: GameMapping[] = [
     rating: 5,
     discovery:
       "GTA Online's implementation of BattlEye Anti-Cheat is currently not enabled for Proton, preventing access to multiplayer on Linux and Steam Deck.",
+    antiCheat: {
+      name: "BattlEye AntiCheat",
+      status: "Broke",
+    },
   },
 
   {
@@ -220,6 +268,9 @@ export const GameAlt: GameMapping[] = [
     title: "The Crew 2",
     badStatus: "Borked",
     goodStatus: "Gold",
+    deckVerified: "Playable",
+    discovery:
+      "This Alternative applied to Forza Horizon 4 and wait for further news about Forza Horizon 6 linux support",
     genre: ["Racing"],
     tags: ["Racing", "Open World", "Automobile Sim"],
     antiCheat: {
@@ -234,6 +285,7 @@ export const GameAlt: GameMapping[] = [
     title: "Escape from Tarkov",
     badStatus: "Bronze",
     goodStatus: "Silver",
+    deckVerified: "Unsupported",
     genre: ["Survival"],
     tags: ["Extraction", "Hardcore", "FPS", "Loot"],
     antiCheat: {
@@ -249,9 +301,11 @@ export const GameAlt: GameMapping[] = [
     title: "Yandere Simulator",
     badStatus: "Borked",
     goodStatus: "Platinum",
-    genre: ["Action" , "Simulation", "Single-player"],
+    deckVerified: "Playable",
+    genre: ["Action", "Simulation", "Single-player"],
     tags: ["Single-player", "Stealth"],
-    discovery: "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer."
+    discovery:
+      "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer.",
   },
   {
     badId: "yandere-simulator",
@@ -259,9 +313,11 @@ export const GameAlt: GameMapping[] = [
     title: "Yandere Simulator",
     badStatus: "Borked",
     goodStatus: "Platinum",
-    genre: ["Action" , "Simulation", "Single-player"],
+    deckVerified: "Playable",
+    genre: ["Action", "Simulation", "Single-player"],
     tags: ["Single-player", "Stealth"],
-    discovery: "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer."
+    discovery:
+      "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer.",
   },
 
   {
@@ -270,9 +326,11 @@ export const GameAlt: GameMapping[] = [
     title: "Yandere Simulator",
     badStatus: "Borked",
     goodStatus: "Platinum",
-    genre: ["Action" , "Simulation", "Single-player"],
+    deckVerified: "Verified",
+    genre: ["Action", "Simulation", "Single-player"],
     tags: ["Single-player", "Stealth"],
-    discovery: "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer."
+    discovery:
+      "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer.",
   },
 
   {
@@ -281,6 +339,7 @@ export const GameAlt: GameMapping[] = [
     title: "F1® 24",
     badStatus: "Borked",
     goodStatus: "Native",
+    deckVerified: "Verified",
     genre: ["Racing", "Sports"],
     tags: ["Racing", "Formula 1", "Simulation"],
     antiCheat: {
@@ -295,6 +354,7 @@ export const GameAlt: GameMapping[] = [
     title: "Heroes & Generals",
     badStatus: "Borked",
     goodStatus: "Native",
+    deckVerified: "Verified",
     genre: ["Shooter", "Strategy"],
     tags: [
       "Free to Play",

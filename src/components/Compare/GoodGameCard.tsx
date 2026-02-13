@@ -10,20 +10,77 @@ import {
   RiStarFill,
   RiUserVoiceLine,
   RiExternalLinkLine,
+  RiCheckboxCircleFill,
+  RiInformationFill,
+  RiCloseCircleFill,
 } from "react-icons/ri";
 
-export default function GoodGameCard({ goodGame, mapping }: { goodGame: SteamGame, mapping?: GameMapping }) {
-  const isNonSteam = goodGame.steam_appid === 0;
+const DeckStatusBadge = ({ status }: { status?: string }) => {
+  if (!status || status === "Unknown") return null;
 
-  const getStatusColor = (status?: string) => {
-    switch (status) {
-      case "Native": return "text-blue-400 border-blue-500/30 bg-blue-500/10";
-      case "Platinum": return "text-purple-400 border-purple-500/30 bg-purple-500/10";
-      case "Gold": return "text-yellow-400 border-yellow-500/30 bg-yellow-500/10";
-      case "Silver": return "text-gray-400 border-gray-500/30 bg-gray-500/10";
-      default: return "text-emerald-400 border-emerald-500/30 bg-emerald-500/10";
-    }
+  const steamDeckVerify = {
+    Verified: {
+      icon: RiCheckboxCircleFill,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      border: "border-emerald-500/20",
+    },
+    Playable: {
+      icon: RiInformationFill,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      border: "border-amber-500/20",
+    },
+    Unsupported: {
+      icon: RiCloseCircleFill,
+      color: "text-zinc-500",
+      bg: "bg-zinc-500/10",
+      border: "border-zinc-500/20",
+    },
   };
+
+  const {
+    icon: Icon,
+    color,
+    bg,
+    border,
+  } = steamDeckVerify[status as keyof typeof steamDeckVerify];
+
+  return (
+    <div
+      className={`flex items-center gap-1 px-2 py-0.5 rounded-md border ${bg} ${border} ${color} font-black uppercase tracking-tighter`}
+    >
+      <Icon size={12} />
+      <span>Deck {status}</span>
+    </div>
+  );
+};
+
+const getStatusColor = (status?: string) => {
+  switch (status) {
+    case "Native":
+      return "text-blue-400 border-blue-500/30 bg-blue-500/10";
+    case "Platinum":
+      return "text-purple-400 border-purple-500/30 bg-purple-500/10";
+    case "Gold":
+      return "text-yellow-400 border-yellow-500/30 bg-yellow-500/10";
+    case "Silver":
+      return "text-gray-400 border-gray-500/30 bg-gray-500/10";
+    default:
+      return "text-emerald-400 border-emerald-500/30 bg-emerald-500/10";
+  }
+};
+
+export default function GoodGameCard({
+  goodGame,
+  mapping,
+  deckVerified,
+}: {
+  goodGame: SteamGame;
+  mapping?: GameMapping;
+  deckVerified?: string;
+}) {
+  const isNonSteam = goodGame.steam_appid === 0;
 
   return (
     <div className="relative group p-6 rounded-4xl border border-indigo-500/40 bg-indigo-500/5 backdrop-blur-3xl shadow-2xl shadow-indigo-500/10">
@@ -58,7 +115,7 @@ export default function GoodGameCard({ goodGame, mapping }: { goodGame: SteamGam
       {/* Pricing and Rating Grid */}
       <div className="grid grid-cols-2 gap-2 mb-6">
         <div className="bg-indigo-500/10 p-3 rounded-xl border border-indigo-500/20 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-indigo-400/5 animate-pulse" />
+          <div className="absolute inset-0 bg-indigo-500/5 animate-pulse" />
           <span className="relative z-10 flex text-[8px] font-black text-indigo-300 uppercase mb-1 items-center gap-1">
             <RiPriceTag3Line /> Current Price
           </span>
@@ -75,7 +132,9 @@ export default function GoodGameCard({ goodGame, mapping }: { goodGame: SteamGam
           <div className="flex items-center gap-1.5">
             <RiStarFill className="text-yellow-400" />
             <span className="text-xl font-black text-white">
-              {mapping?.rating ? `${mapping.rating}/5` : (goodGame.metacritic?.score ?? "N/A")}
+              {mapping?.rating
+                ? `${mapping.rating}/5`
+                : (goodGame.metacritic?.score ?? "N/A")}
             </span>
           </div>
         </div>
@@ -94,9 +153,16 @@ export default function GoodGameCard({ goodGame, mapping }: { goodGame: SteamGam
 
         <div className="flex justify-between border-b border-white/5 pb-2">
           <span className="text-zinc-500">Compatibility</span>
-          <span className={`px-2 py-0.5 rounded border ${getStatusColor(mapping?.goodStatus)}`}>
+          <span
+            className={`px-2 py-0.5 rounded border ${getStatusColor(mapping?.goodStatus)}`}
+          >
             {mapping?.goodStatus || "Verified"}
           </span>
+        </div>
+
+        <div className="flex justify-between border-b border-white/5 pb-2">
+          <span className="text-zinc-500">Steam Deck Verify</span>
+          <DeckStatusBadge status={deckVerified} />
         </div>
       </div>
 
@@ -125,7 +191,7 @@ export default function GoodGameCard({ goodGame, mapping }: { goodGame: SteamGam
             target="_blank"
             className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all"
           >
-            <RiPulseLine size={16} className="text-indigo-400" /> Database
+            <RiPulseLine size={16} className="text-indigo-500" /> Database
           </Link>
         )}
       </div>

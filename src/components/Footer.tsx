@@ -5,7 +5,7 @@ import { RiCompass3Line, RiDiscordFill } from "react-icons/ri";
 
 export default function Footer() {
   return (
-    <div className="relative mx-auto bg-zinc-950 text-white overflow-hidden">
+    <div className="relative mx-auto  text-white overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <section className="relative max-w-7xl mx-auto mb-20 px-6">
@@ -15,7 +15,7 @@ export default function Footer() {
 
           <div className="relative z-10">
             <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">
-              READY TO <span className="text-indigo-400">SWITCH?</span>
+              READY TO <span className="text-indigo-500">SWITCH?</span>
             </h3>
             <p className="max-w-xl mx-auto text-zinc-400 text-lg font-medium mb-10">
               Stop dual-booting and start playing. Join thousands of gamers 
@@ -35,7 +35,7 @@ export default function Footer() {
                 href={Contact.discord}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-zinc-900/80 border border-white/10 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-tight hover:bg-zinc-800 transition-all active:scale-95"
+                className="SecondaryBtn"
               >
                 <RiDiscordFill size={22} className="text-[#5865F2]" />
                 Join Squad
@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5 pt-10">
 
           <div className="text-zinc-500 text-sm font-medium flex items-center gap-2">
-            © {new Date().getFullYear()} — Built By Player for the Players
+            © {new Date().getFullYear()} — Built By Player for Players
           </div>
 
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-600">

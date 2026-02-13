@@ -59,7 +59,7 @@ export default async function ComparisonPage({ params }: PageProps) {
   };
 
   return (
-    <main className="relative min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden font-sans">
+    <main className="relative min-h-screen  text-zinc-100 overflow-hidden font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -74,7 +74,7 @@ export default async function ComparisonPage({ params }: PageProps) {
         <header className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-none">
             Combat{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-purple-500">
               Redirect
             </span>
           </h1>
@@ -90,25 +90,24 @@ export default async function ComparisonPage({ params }: PageProps) {
 
           <div className="flex lg:flex-col items-center justify-center gap-4 py-8 self-center">
             <div className="h-px lg:h-32 w-24 lg:w-px bg-linear-to-b from-red-500/50 via-indigo-500/50 to-indigo-500/0" />
-            <div className="w-14 h-14 rounded-full border border-indigo-500/50 bg-zinc-950 flex items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.4)] z-20">
+            <div className="w-14 h-14 rounded-full border border-indigo-500/50  flex items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.4)] z-20">
               <RiArrowRightSLine
                 size={32}
-                className="text-indigo-400 lg:rotate-0 rotate-90"
+                className="text-indigo-500 lg:rotate-0 rotate-90"
               />
             </div>
             <div className="h-px lg:h-32 w-24 lg:w-px bg-linear-to-b from-indigo-500/0 to-transparent" />
           </div>
 
-          <GoodGameCard goodGame={goodGame} mapping={mapping} />
+          <GoodGameCard goodGame={goodGame} mapping={mapping} deckVerified={mapping?.deckVerified} />
         </div>
 
-        {/* DETAILED TECH SPECS */}
         <section className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-8 rounded-3xl bg-white/2 border border-white/5">
             <div className="flex items-center gap-2 mb-4">
               <RiGroupLine className="text-red-500" />
               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-red-500/60">
-                Publisher Data
+                Unsupported Game Description
               </h3>
             </div>
             <div
@@ -119,8 +118,8 @@ export default async function ComparisonPage({ params }: PageProps) {
 
           <div className="p-8 rounded-3xl bg-indigo-500/3 border border-indigo-500/10">
             <div className="flex items-center gap-2 mb-4">
-              <RiComputerLine className="text-indigo-400 animate-pulse" />
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">
+              <RiComputerLine className="text-indigo-500 animate-pulse" />
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-500">
                 Alternative Game
               </h3>
             </div>

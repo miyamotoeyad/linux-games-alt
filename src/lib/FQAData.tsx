@@ -15,7 +15,7 @@ export const fqaData = [
       "Absolutely. We don't like 'theoretical' gaming. We verify that our recommendations actually run so you don't waste time (or bandwidth) on a title that won't launch.",
   },
   {
-    question: "Why use this website instead of just checking ProtonDB?",
+    question: "Why Do I use this website instead of just checking ProtonDB?",
     answer:
       "ProtonDB is a great diagnostic tool, but it's often a dead end. When you see a **'Silver'** or **'Borked'** rating, you're stuck. We provide the **'What's next?'** by suggesting similar games that respect your choice of OS.",
   },

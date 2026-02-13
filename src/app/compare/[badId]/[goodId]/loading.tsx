@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <main className="relative min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden font-sans">
+    <main className="relative min-h-screen  text-zinc-100 overflow-hidden font-sans">
       {/* Mirror Background Effects */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-0 w-1/2 h-full bg-red-600/10 blur-[120px]" />

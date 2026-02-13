@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NextTopLoader from 'nextjs-toploader';
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const viewport: Viewport = {
@@ -76,8 +77,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased bg-zinc-950 selection:bg-indigo-500/30">
+      <body className="antialiased  selection:bg-indigo-500/30">
         <Navbar />
+        <NextTopLoader 
+          color="#6366f1"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          showSpinner={false} 
+          easing="ease"
+          speed={200}
+        />
         {children}
         <Footer />
       </body>
