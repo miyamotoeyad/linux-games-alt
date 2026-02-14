@@ -4,7 +4,7 @@ import { getSteamGame } from "@/lib/SteamData";
 import { GameAlt } from "@/lib/data";
 import BadGameCard from "@/components/Compare/BadGameCard";
 import GoodGameCard from "@/components/Compare/GoodGameCard";
-import Disclosure from "@/components/Compare/disclosure";
+import Disclosure from "@/components/Compare/Disclosure";
 
 interface PageProps {
   params: Promise<{ badId: string; goodId: string }>;
