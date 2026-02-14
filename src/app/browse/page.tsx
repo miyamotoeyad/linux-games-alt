@@ -60,7 +60,7 @@ export default async function BrowsePage({ searchParams }: PageProps) {
         <aside className="lg:sticky lg:top-32 w-full lg:w-72 gird gap-6 shrink-0 z-20">
           <SearchBar />
           <div className="p-1 rounded-4xl bg-linear-to-b mt-8 md:block hidden from-white/10 to-transparent">
-            <div className="bg-zinc-950/80 backdrop-blur-2xl rounded-[1.9rem] p-4 border border-white/5">
+            <div className="bg-zinc-950/80 backdrop-blur-2xl rounded-[1.5rem] p-4 border border-white/5">
               <FilterSidebar />
             </div>
           </div>
