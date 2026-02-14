@@ -22,10 +22,6 @@ export default async function Home() {
 
       <section className="relative min-h-screen max-w-7xl mx-auto px-6 py-14">
         <div className="max-w-4xl">
-          {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-indigo-300 text-[9px] font-bold uppercase tracking-[0.2em] mb-8 backdrop-blur-md">
-            <RiGamepadLine className="text-lg" />
-            The Ultimate Linux Alternative Games
-          </div> */}
 
           <h1 className="text-7xl md:text-8xl font-black tracking-tighter leading-[0.85] uppercase italic">
             PLAY WITHOUT <br />
@@ -88,7 +84,7 @@ export default async function Home() {
                 unsupportedId={game.badId}
                 alternativeId={game.goodId}
                 antiCheat={game.antiCheat?.name}
-                disclosure={game.discovery}
+                disclosure={game.disclosure}
                 deckStatus={game.deckVerified}
               />
             </div>
@@ -104,7 +100,6 @@ export default async function Home() {
           </Link>
         </div>
 
-        {/* Why Choose Linux Games Alt */}
         <section className="relative max-w-7xl mx-auto my-32">
           <h2 className="text-5xl md:text-6xl text-center font-black uppercase tracking-tighter mb-14 italic">
             Why Use <span className="text-indigo-500">Linux Games Alt?</span>
@@ -149,7 +144,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* FQA Linux Games Alt */}
         <section className="relative md:mt-32 mt-0 max-w-7xl mx-auto grid grid-cols-1 gap-14 md:grid-cols-3">
           <div className="lg:sticky top-32 h-fit self-start">
             <h2 className="text-6xl font-black uppercase tracking-tighter italic">
@@ -163,7 +157,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Discord CTA */}
         <div className="group relative mt-40 p-1 text-center rounded-4xl overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-10 group-hover:opacity-30 transition-opacity duration-500" />
           <div className="relative py-20 px-8 bg-zinc-950/80 backdrop-blur-3xl rounded-[1.9rem] flex flex-col items-center border border-white/5">

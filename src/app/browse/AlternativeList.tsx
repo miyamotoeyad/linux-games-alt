@@ -37,7 +37,7 @@ export default function AlternativeList({ games }: GameGridProps) {
               unsupportedId={game.badId}
               alternativeId={game.goodId}
               antiCheat={game.antiCheat?.name}
-              disclosure={game.discloser}
+              disclosure={game.disclosure}
             />
           </div>
         ))}

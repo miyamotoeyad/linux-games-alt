@@ -83,7 +83,7 @@ export default async function BrowsePage({ searchParams }: PageProps) {
                       unsupportedId={game.badId}
                       alternativeId={game.goodId}
                       antiCheat={game.antiCheat?.name}
-                      disclosure={game.discloser}
+                      disclosure={game.disclosure}
                       // deckStatus={game.deckVerified}
                     />
                   </div>

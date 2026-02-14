@@ -115,7 +115,7 @@ export const GameAlt: GameMapping[] = [
       name: "Vanguard",
       status: "Kernel Hardlock",
     },
-    discloser:
+    disclosure:
       "Heroes of Mewerth needs a little tweaks to working on linux. search the game in Lutris and download the linux version of the game.",
   },
 
@@ -322,7 +322,7 @@ export const GameAlt: GameMapping[] = [
     ],
     title: "GTA V",
     rating: 5,
-    discloser:
+    disclosure:
       "GTA Online's implementation of BattlEye Anti-Cheat is currently not enabled for Proton, preventing access to multiplayer on Linux and Steam Deck.",
     antiCheat: {
       name: "BattlEye AntiCheat",
@@ -337,7 +337,7 @@ export const GameAlt: GameMapping[] = [
     badStatus: "Borked",
     goodStatus: "Gold",
     deckVerified: "Playable",
-    discloser:
+    disclosure:
       "This Alternative applied to Forza Horizon 4 and wait for further news about Forza Horizon 6 linux support",
     genre: ["Racing"],
     tags: ["Racing", "Open World", "Automobile Sim"],
@@ -408,7 +408,7 @@ export const GameAlt: GameMapping[] = [
     deckVerified: "Playable",
     genre: ["Action", "Simulation", "Single-player"],
     tags: ["Single-player", "Stealth"],
-    discloser:
+    disclosure:
       "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer.",
   },
 
@@ -485,7 +485,7 @@ export const GameAlt: GameMapping[] = [
     deckVerified: "Verified",
     genre: ["Action", "Simulation", "Single-player"],
     tags: ["Single-player", "Stealth"],
-    discloser:
+    disclosure:
       "Yandere Simulator is a unique indie title that has never been available on Steam. And to work it needs many tweaks to work on linux. There is no official statement about working the game on linux from the developer.",
   },
 

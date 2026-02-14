@@ -9,7 +9,7 @@ export interface GameMapping {
   title: string;
   genre: string[];
   tags: string[];
-  discloser?: string;
+  disclosure?: string;
   officialUrl?: string;
   badStatus: "Borked" | "Bronze" | "Silver";
   goodStatus: "Native" | "Platinum" | "Gold" | "Silver";
