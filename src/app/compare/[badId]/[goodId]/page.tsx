@@ -108,7 +108,7 @@ export default async function ComparisonPage({ params }: PageProps) {
           <div className="p-8 rounded-3xl bg-white/2 border border-white/5">
             <div className="flex items-center gap-2 mb-4">
               <RiGroupLine className="text-red-500" />
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-500/60">
+              <h3 className="text-[10px] font-blacked uppercase tracking-[0.3em] text-red-500/60">
                 Unsupported Game Description
               </h3>
             </div>
@@ -121,7 +121,7 @@ export default async function ComparisonPage({ params }: PageProps) {
           <div className="p-8 rounded-3xl bg-indigo-500/3 border border-indigo-500/10">
             <div className="flex items-center gap-2 mb-4">
               <RiComputerLine className="text-indigo-500 animate-pulse" />
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-indigo-500">
+              <h3 className="text-[10px] font-blacked uppercase tracking-[0.3em] text-indigo-500">
                 Alternative Game
               </h3>
             </div>

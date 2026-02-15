@@ -14,7 +14,7 @@ export default function Navbar() {
         >
           <Image src="/Logo.svg" alt="Logo" width={52} height={52} className="rounded-sm" />
           <div className="flex flex-col">
-            <span className="text-2xl font-blacked tracking-wider group-hover:text-indigo-500 transition-colors duration-300 text-white leading-none">
+            <span className="text-xl font-blacked tracking-wider group-hover:text-indigo-500 transition-colors duration-300 text-white leading-none">
               LINUX GAMES<span className="text-indigo-500">ALT</span>
             </span>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">

@@ -27,7 +27,7 @@ export default function BrowseLayout({
         <header className="relative my-16">
           <div className="flex flex-col mt-14 md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-3xl">
-              <h1 className="text-6xl md:text-8xl font-black tracking-wide leading-none uppercase mb-6">
+              <h1 className="text-6xl md:text-7xl font-blacked leading-none uppercase mb-6">
                 THE <span className="text-indigo-500">LIBRARY</span>
               </h1>
               <p className="text-xl text-zinc-400 font-medium leading-relaxed">
@@ -39,7 +39,7 @@ export default function BrowseLayout({
 
             <div className="hidden lg:flex items-center gap-6 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
               <div className="text-center pr-4 border-r border-white/10">
-                <div className="text-2xl font-black text-white leading-none">
+                <div className="text-2xl font-blacked text-white leading-none">
                   +{totalGames}
                 </div>
                 <div className="text-[10px] font-bold text-zinc-500 uppercase mt-1">
@@ -47,7 +47,7 @@ export default function BrowseLayout({
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-black text-green-500 leading-none">
+                <div className="text-2xl font-blacked text-green-500 leading-none">
                   100%
                 </div>
                 <div className="text-[10px] font-bold text-zinc-500 uppercase mt-1">

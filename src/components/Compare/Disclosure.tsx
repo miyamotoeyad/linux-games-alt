@@ -23,7 +23,7 @@ export default function Disclosure({ mapping }: DisclosureProps ) {
 
               <div className="flex-1 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                  <span className="font-black uppercase tracking-[0.4em] text-yellow-500 text-[10px]">
+                  <span className="font-blacked uppercase text-yellow-500 text-[10px]">
                     Critical Disclosure
                   </span>
                   <span className="h-px w-12 bg-yellow-500/20" />

@@ -23,7 +23,7 @@ export default async function Home() {
       <section className="relative min-h-screen max-w-7xl mx-auto px-6 py-14">
         <div className="max-w-4xl">
 
-          <h1 className="text-7xl md:text-9xl font-blacked leading-[0.85] uppercase italic">
+          <h1 className="text-7xl md:text-8xl font-blacked leading-[0.85] uppercase italic">
             PLAY WITHOUT <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 via-purple-400 to-pink-500">
               LIMITS.
@@ -57,7 +57,7 @@ export default async function Home() {
       <section className="relative max-w-7xl mx-auto px-6 pb-32">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl italic font-black uppercase">
+            <h2 className="text-4xl md:text-5xl italic font-blacked uppercase">
               Priority <span className="text-indigo-500">Swaps</span>
             </h2>
           </div>
@@ -100,8 +100,8 @@ export default async function Home() {
           </Link>
         </div>
 
-        <section className="relative max-w-7xl mx-auto my-32">
-          <h2 className="text-5xl md:text-6xl text-center font-black uppercase tracking-wide mb-14 italic">
+        <section className="relative max-w-7xl mx-auto my-50">
+          <h2 className="text-4xl md:text-5xl text-center font-blacked uppercase mb-14 italic">
             Why Use <span className="text-indigo-500">Linux Games Alt?</span>
           </h2>
 
@@ -146,7 +146,7 @@ export default async function Home() {
 
         <section className="relative md:mt-32 mt-0 max-w-7xl mx-auto grid grid-cols-1 gap-14 md:grid-cols-3">
           <div className="lg:sticky top-32 h-fit self-start">
-            <h2 className="text-6xl font-black uppercase tracking-wide italic">
+            <h2 className="text-5xl font-blacked uppercase italic">
               Questions <br />
               <span className="text-indigo-500">You may ask</span>
             </h2>
@@ -163,7 +163,7 @@ export default async function Home() {
             <div className="w-20 h-20 bg-[#5865F2] rounded-3xl flex items-center justify-center shadow-2xl shadow-[#5865F2]/40 mb-8 group-hover:scale-110 transition-transform">
               <RiDiscordFill size={44} className="text-white" />
             </div>
-            <h3 className="text-5xl font-black uppercase tracking-wider mb-4">
+            <h3 className="text-5xl font-blacked uppercase mb-4">
               Missing Game?
             </h3>
             <p className="text-zinc-400 text-lg max-w-md mx-auto mb-10 font-medium leading-relaxed">

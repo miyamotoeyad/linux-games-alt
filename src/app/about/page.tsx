@@ -46,7 +46,7 @@ export default function About() {
 
       <div className="relative z-10 max-w-7xl w-full px-6">
         <header className="mb-20 text-center">
-          <h1 className="text-6xl text-white md:text-8xl font-black uppercase tracking-wide mb-8 italic">
+          <h1 className="text-6xl text-white md:text-8xl font-blacked uppercase tracking-wide mb-8 italic">
             THE <span className="text-indigo-500">MISSION</span>
           </h1>
 
@@ -76,7 +76,7 @@ export default function About() {
 
               <div className="flex items-center gap-6">
                 <div>
-                  <span className="block text-4xl font-bold italic text-white leading-none">
+                  <span className="block text-4xl font-blacked italic text-white leading-none">
                     +{totalRedirects}
                   </span>
                   <span className="text-[9px] font-black uppercase tracking-[0.3em] text-indigo-400">
@@ -85,7 +85,7 @@ export default function About() {
                 </div>
                 <div className="w-px h-10 bg-white/10" />
                 <div>
-                  <span className="block text-4xl font-bold italic text-white leading-none">
+                  <span className="block text-4xl font-blacked italic text-white leading-none">
                     100%
                   </span>
                   <span className="text-[9px] font-black uppercase tracking-[0.3em] text-indigo-400">

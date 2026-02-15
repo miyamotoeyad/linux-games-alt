@@ -27,7 +27,7 @@ export default function BadGameCard({ badGame, mapping }: { badGame: NonSteamGam
       />
 
       <div className="mb-6">
-        <h2 className="text-4xl font-black uppercase tracking-wide text-zinc-400 leading-none">
+        <h2 className="text-2xl font-blacked uppercase text-zinc-400 leading-none">
           {badGame.name}
         </h2>
 
@@ -46,7 +46,7 @@ export default function BadGameCard({ badGame, mapping }: { badGame: NonSteamGam
             Entry Cost
           </span>
 
-          <span className="text-xl font-bold text-red-400/80">
+          <span className="text-xl font-blacked text-red-400/80">
             {badGame.is_free
               ? "FREE"
               : badGame.price_overview?.final_formatted || "N/A"}
@@ -58,7 +58,7 @@ export default function BadGameCard({ badGame, mapping }: { badGame: NonSteamGam
             Proton Status
           </span>
           <div className="flex items-center gap-1.5">
-            <span className={`text-xl font-bold uppercase ${
+            <span className={`text-xl font-blacked uppercase ${
               mapping?.badStatus === 'Borked' ? 'text-red-500' : 'text-amber-400'
             }`}>
               {mapping?.badStatus ?? "???"}
@@ -97,7 +97,7 @@ export default function BadGameCard({ badGame, mapping }: { badGame: NonSteamGam
           <Link
             href={`https://www.protondb.com/app/${badGame.steam_appid}`}
             target="_blank"
-            className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all"
+            className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] font-blacked uppercase tracking-widest hover:bg-white/10 transition-all"
           >
             <RiReactjsLine size={16} className="text-red-400" /> View status in
             protondb

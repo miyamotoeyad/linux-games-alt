@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="absolute inset-0 bg-linear-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
           <div className="relative z-10">
-            <h3 className="text-4xl md:text-5xl font-black uppercase tracking-wider mb-4">
+            <h3 className="text-4xl md:text-5xl font-blacked uppercase mb-4">
               READY TO <span className="text-indigo-500">SWITCH?</span>
             </h3>
             <p className="max-w-xl mx-auto text-zinc-400 text-lg font-medium mb-10">
