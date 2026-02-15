@@ -70,7 +70,7 @@ export default async function ComparisonPage({ params }: PageProps) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-14">
         <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-wide italic leading-none">
+          <h1 className="text-5xl md:text-7xl font-blacked uppercase tracking-wide italic leading-none">
             Viable{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-purple-500">
               Alternative
