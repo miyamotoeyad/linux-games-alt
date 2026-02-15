@@ -77,7 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased  selection:bg-indigo-500/30">
+      <body className="antialiased min-h-screen selection:bg-indigo-500/30">
         <Navbar />
         <NextTopLoader 
           color="#6366f1"

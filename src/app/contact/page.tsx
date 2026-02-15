@@ -122,8 +122,6 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <section className="relative group p-10 rounded-[2.5rem] bg-white/3 border border-white/10 backdrop-blur-3xl overflow-hidden flex flex-col justify-between">
-            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
             <div className="relative mb-8">
               <div className="h-14 w-14 bg-zinc-900 border border-white/10 rounded-2xl flex items-center justify-center shadow-2xl">
                 <TbMail
@@ -142,16 +140,14 @@ export default function ContactPage() {
                 technicals regarding Linux Games Alt.
               </p>
 
-              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-900/50 border border-white/5 w-fit">
-                <Link
-                  href={email}
-                  target="_blank"
-                  className="flex items-center gap-2 px-4 py-3 text-[0.7rem] rounded-xl bg-white/5 border border-white/5 font-bold text-zinc-300 uppercase tracking-widest hover:bg-white/10 hover:text-white transition-all"
-                >
-                  <RiMailSendLine size={16} className="text-indigo-500" />
-                  Contact via Email
-                </Link>
-              </div>
+              <Link
+                href={email}
+                target="_blank"
+                className="flex items-center gap-2 px-4 py-3 text-[0.7rem] rounded-xl bg-white/5 border border-white/5 font-bold text-zinc-300 uppercase tracking-widest hover:bg-white/10 hover:text-white transition-all"
+              >
+                <RiMailSendLine size={16} className="text-indigo-500" />
+                Contact via Email
+              </Link>
             </div>
           </section>
 
