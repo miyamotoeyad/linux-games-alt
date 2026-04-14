@@ -24,44 +24,44 @@ export default function BrowseLayout({
 
   return (
     <main className="relative min-h-screen max-w-7xl mx-auto px-6 mb-14 text-white">
-        <header className="relative my-16">
-          <div className="flex flex-col mt-14 md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-3xl">
-              <h1 className="text-6xl md:text-7xl font-blacked leading-none uppercase mb-6">
-                THE <span className="text-indigo-500">LIBRARY</span>
-              </h1>
-              <p className="text-xl text-zinc-400 font-medium leading-relaxed">
-                Access the full list of high-fidelity Linux alternatives games.
-                Filtered by performance, verified by the community, and
-                optimized for the modern desktop.
-              </p>
-            </div>
+      <header className="relative my-16">
+        <div className="flex flex-col mt-14 md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-blacked leading-none uppercase mb-6">
+              THE <span className="text-indigo-500">LIBRARY</span>
+            </h1>
+            <p className="text-xl text-zinc-400 font-medium leading-relaxed border-l-2 border-indigo-500/50 pl-5">
+              Access the full list of high-fidelity Linux alternatives games.
+              Filtered by performance, verified by the community, and optimized
+              for the modern desktop.
+            </p>
+          </div>
 
-            <div className="hidden lg:flex items-center gap-6 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
-              <div className="text-center pr-4 border-r border-white/10">
-                <div className="text-2xl font-blacked text-white leading-none">
-                  +{totalGames}
-                </div>
-                <div className="text-[10px] font-bold text-zinc-500 uppercase mt-1">
-                  Alternatives
-                </div>
+          <div className="hidden lg:flex items-center gap-6 p-6 border border-zinc-800 bg-zinc-900">
+            <div className="text-center pr-6 border-r border-zinc-800">
+              <div className="text-2xl font-blacked text-white leading-none">
+                +{totalGames}
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-blacked text-green-500 leading-none">
-                  100%
-                </div>
-                <div className="text-[10px] font-bold text-zinc-500 uppercase mt-1">
-                  Native
-                </div>
+              <div className="text-[10px] font-bold text-zinc-500 uppercase mt-1">
+                Alternatives
               </div>
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/20">
-                <RiListCheck2 size={24} className="text-white" />
+            </div>
+            <div className="text-center pr-6 border-r border-zinc-800">
+              <div className="text-2xl font-blacked text-emerald-500 leading-none">
+                100%
               </div>
+              <div className="text-[10px] font-bold text-zinc-500 uppercase mt-1">
+                Native
+              </div>
+            </div>
+            <div className="w-10 h-10 bg-indigo-600 flex items-center justify-center">
+              <RiListCheck2 size={22} className="text-white" />
             </div>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <section className="relative min-h-100">{children}</section>
+      <section className="relative min-h-100">{children}</section>
     </main>
   );
 }
