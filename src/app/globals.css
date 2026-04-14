@@ -35,7 +35,7 @@
   }
 
   .SecondaryBtn {
-    @apply flex items-center justify-center gap-3 bg-zinc-900/80 border backdrop-blur-sm border-white/10 whitespace-nowrap text-white px-10 py-4 rounded-2xl font-bold uppercase tracking-tight md:w-fit w-full hover:bg-zinc-800 transition-all active:scale-95;
+    @apply flex items-center justify-center gap-3 bg-zinc-900 border border-white/10 whitespace-nowrap text-white px-10 py-4 rounded-2xl font-bold uppercase tracking-tight md:w-fit w-full hover:bg-zinc-800 transition-all active:scale-95;
   }
 }
 
