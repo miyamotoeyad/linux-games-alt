@@ -38,16 +38,12 @@ const DeckStatusBadge = ({ status }: { status?: string }) => {
     },
   };
 
-  const {
-    icon: Icon,
-    color,
-    bg,
-    border,
-  } = steamDeckVerify[status as keyof typeof steamDeckVerify];
+  const { icon: Icon, color, bg, border } =
+    steamDeckVerify[status as keyof typeof steamDeckVerify];
 
   return (
     <div
-      className={`flex items-center gap-1 px-2 py-0.5 rounded-md border ${bg} ${border} ${color} font-bold uppercase tracking-wide`}
+      className={`flex items-center gap-1 px-2 py-0.5 border ${bg} ${border} ${color} font-bold uppercase tracking-wide text-[10px]`}
     >
       <Icon size={12} />
       <span>Deck {status}</span>
@@ -82,28 +78,31 @@ export default function GoodGameCard({
   const isNonSteam = goodGame.steam_appid === 0;
 
   return (
-    <div className="relative group p-6 rounded-4xl border border-indigo-500/40 bg-indigo-500/5 backdrop-blur-3xl shadow-2xl shadow-indigo-500/10">
-      <div className="absolute top-0 right-0 px-4 py-1 bg-indigo-500 text-white text-[9px] font-bold uppercase tracking-widest italic rounded-bl-xl">
+    <div className="relative group p-6 rounded-2xl border border-indigo-500/40 bg-indigo-500/5">
+      {/* Tag */}
+      <div className="absolute top-0 right-0 px-4 py-1 bg-indigo-500 text-white text-[9px] font-bold uppercase tracking-widest italic rounded-bl-lg">
         Recommended Alternative
       </div>
 
+      {/* Cover image */}
       <Image
         width={600}
         height={800}
         src={goodGame.header_image}
-        className="w-full object-cover rounded-2xl mb-6 shadow-2xl ring-1 ring-indigo-500/30"
+        className="w-full object-cover rounded-lg mb-6 shadow-xl ring-1 ring-indigo-500/30"
         alt={goodGame.name}
       />
 
+      {/* Title & genres */}
       <div className="mb-6">
         <h2 className="text-2xl font-blacked uppercase tracking-wide italic text-white leading-none">
           {goodGame.name}
         </h2>
-        <div className="flex gap-2 mt-2">
-          {goodGame.genres?.slice(0, 2).map((g,i) => (
+        <div className="flex flex-wrap gap-2 mt-2">
+          {goodGame.genres?.slice(0, 2).map((g, i) => (
             <span
               key={i}
-              className="text-[9px] border border-indigo-500/20 bg-indigo-500/10 px-2 py-0.5 rounded text-indigo-300 font-bold uppercase"
+              className="text-[9px] border border-indigo-500/20 bg-indigo-500/10 px-2 py-0.5 text-indigo-300 font-bold uppercase"
             >
               {g.description}
             </span>
@@ -111,19 +110,20 @@ export default function GoodGameCard({
         </div>
       </div>
 
+      {/* Stats grid */}
       <div className="grid grid-cols-2 gap-2 mb-6">
-        <div className="bg-indigo-500/10 p-3 rounded-xl border border-indigo-500/20 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-indigo-500/5 animate-pulse" />
-          <span className="relative z-10 flex text-[8px] font-bold text-indigo-300 uppercase mb-1 items-center gap-1">
+        <div className="bg-indigo-500/10 p-3 rounded-lg border border-indigo-500/20">
+          <span className="flex text-[8px] font-bold text-indigo-300 uppercase mb-1 items-center gap-1">
             <RiPriceTag3Line /> Current Price
           </span>
-          <span className="relative z-10 text-xl font-blacked text-white">
+          <span className="text-xl font-blacked text-white">
             {goodGame.is_free
               ? "FREE TO PLAY"
               : goodGame.price_overview?.final_formatted || "N/A"}
           </span>
         </div>
-        <div className="bg-indigo-500/10 p-3 rounded-xl border border-indigo-500/20">
+
+        <div className="bg-indigo-500/10 p-3 rounded-lg border border-indigo-500/20">
           <span className="text-[8px] font-bold text-indigo-300 uppercase mb-1 flex items-center gap-1">
             <RiUserVoiceLine /> Recommendation Score
           </span>
@@ -138,45 +138,43 @@ export default function GoodGameCard({
         </div>
       </div>
 
+      {/* Details list */}
       <div className="space-y-3 text-[11px] font-bold uppercase text-zinc-500">
-        <div className="flex justify-between border-b border-white/5 pb-2">
-          <span className="text-zinc-500">Developer</span>
+        <div className="flex justify-between border-b border-zinc-800 pb-2">
+          <span>Developer</span>
           <span className="text-indigo-300">{goodGame.developers?.[0]}</span>
         </div>
-        <div className="flex justify-between border-b border-white/5 pb-2">
-          <span>Release</span>
 
+        <div className="flex justify-between border-b border-zinc-800 pb-2">
+          <span>Release</span>
           <span className="text-zinc-300">{goodGame.release_date?.date}</span>
         </div>
 
-        <div className="flex justify-between border-b border-white/5 pb-2">
-          <span className="text-zinc-500">Compatibility</span>
-          <span
-            className={`px-2 py-0.5 rounded border ${getStatusColor(mapping?.goodStatus)}`}
-          >
+        <div className="flex justify-between border-b border-zinc-800 pb-2">
+          <span>Compatibility</span>
+          <span className={`px-2 py-0.5 border ${getStatusColor(mapping?.goodStatus)}`}>
             {mapping?.goodStatus || "Verified"}
           </span>
         </div>
 
-        <div className="flex justify-between border-b border-white/5 pb-2">
-          <span className="text-zinc-500">Steam Deck Verify</span>
+        <div className="flex justify-between border-b border-zinc-800 pb-2">
+          <span>Steam Deck Verify</span>
           <DeckStatusBadge status={deckVerified} />
         </div>
       </div>
 
+      {/* CTAs */}
       <div className="grid grid-cols-2 gap-3 mt-6">
         <Link
           href={
             goodGame.officialUrl
               ? goodGame.officialUrl
-              :
-                isNonSteam
-                ? `https://www.google.com/search?q=${encodeURIComponent(goodGame.name)}+official+site`
-                :
-                  `steam://run/${goodGame.steam_appid}`
+              : isNonSteam
+              ? `https://www.google.com/search?q=${encodeURIComponent(goodGame.name)}+official+site`
+              : `steam://run/${goodGame.steam_appid}`
           }
           target="_blank"
-          className="flex items-center justify-center gap-2 py-3 rounded-xl bg-indigo-600 text-[10px] font-blacked uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30"
+          className="flex items-center justify-center gap-2 py-3 rounded-lg bg-indigo-600 text-[10px] font-blacked uppercase tracking-widest hover:bg-indigo-500 transition-all"
         >
           {isNonSteam || goodGame.officialUrl ? (
             <RiExternalLinkLine size={16} />
@@ -186,14 +184,15 @@ export default function GoodGameCard({
           {goodGame.officialUrl
             ? "Official Site"
             : isNonSteam
-              ? "Visit Site"
-              : "Install Game"}
+            ? "Visit Site"
+            : "Install Game"}
         </Link>
+
         {!isNonSteam ? (
           <Link
             href={`https://www.protondb.com/app/${goodGame.steam_appid}`}
             target="_blank"
-            className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] font-blacked uppercase tracking-widest hover:bg-white/10 transition-all"
+            className="flex items-center justify-center gap-2 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-[10px] font-blacked uppercase tracking-widest hover:bg-zinc-800 hover:border-zinc-700 transition-all"
           >
             <RiPulseLine size={16} className="text-indigo-500" /> Database
           </Link>
@@ -201,7 +200,7 @@ export default function GoodGameCard({
           <Link
             href={`https://store.steampowered.com/search/?term=${encodeURIComponent(goodGame.name)}`}
             target="_blank"
-            className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] font-blacked uppercase tracking-widest hover:bg-white/10 transition-all text-zinc-400"
+            className="flex items-center justify-center gap-2 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-[10px] font-blacked uppercase tracking-widest hover:bg-zinc-800 hover:border-zinc-700 transition-all text-zinc-400"
           >
             <RiExternalLinkLine size={16} /> Check Steam
           </Link>
