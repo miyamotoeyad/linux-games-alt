@@ -6,13 +6,19 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="sticky w-full top-0 z-50 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10">
+    <nav className="sticky w-full top-0 z-50 bg-zinc-950 border-b border-zinc-800">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-3 group transition-opacity"
         >
-          <Image src="/Logo.svg" alt="Logo" width={52} height={52} className="rounded-sm" />
+          <Image
+            src="/Logo.svg"
+            alt="Logo"
+            width={52}
+            height={52}
+            className="rounded-sm"
+          />
           <div className="flex flex-col">
             <span className="text-xl font-blacked tracking-wider group-hover:text-indigo-500 transition-colors duration-300 text-white leading-none">
               LINUX GAMES<span className="text-indigo-500">ALT</span>
@@ -36,10 +42,8 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <Link
-            href={Contact.github}
-            className="p-2.5 SecondaryBtn"
-          >
+
+          <Link href={Contact.github} className="p-2.5 SecondaryBtn">
             <RiGithubFill size={20} />
           </Link>
 
