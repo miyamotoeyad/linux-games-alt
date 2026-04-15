@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   verification: {
-    google: "phsyYqmauz0IEuSeMX3muiHhjWBOp6bBZDGmi8QNHXw",
+    google: "SAdpay-liv1rI5Wv_WMEhQWbAXRtsm96riCif7zyOzs",
   },
   openGraph: {
     type: "website",
