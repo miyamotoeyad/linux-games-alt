@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import GameCard from "@/components/Games/GameCard";
-import { RiLoader3Line, RiAddLine } from "react-icons/ri";
+import { RiLoader3Line } from "react-icons/ri";
 import { GameMapping } from "@/types/steam";
 
 interface GameGridProps {
@@ -12,23 +12,38 @@ interface GameGridProps {
 export default function AlternativeList({ games }: GameGridProps) {
   const [displayCount, setDisplayCount] = useState(10);
   const [isLoading, setIsLoading] = useState(false);
-
-  const handleLoadMore = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setDisplayCount((prev) => prev + 10);
-      setIsLoading(false);
-    }, 600);
-  };
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   const visibleGames = games.slice(0, displayCount);
   const hasMore = displayCount < games.length;
 
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first.isIntersecting && hasMore && !isLoading) {
+          setIsLoading(true);
+          setTimeout(() => {
+            setDisplayCount((prev) => prev + 10);
+            setIsLoading(false);
+          }, 600);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [hasMore, isLoading]);
+
   return (
-    <div className="space-y-12">
-      <div className="grid grid-cols-1 gap-8">
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 gap-6">
         {visibleGames.map((game, i) => (
-          <div 
+          <div
             key={`${game.badId}-${i}`}
             className="animate-in fade-in slide-in-from-bottom-4 duration-500"
             style={{ animationDelay: `${(i % 10) * 50}ms` }}
@@ -43,24 +58,27 @@ export default function AlternativeList({ games }: GameGridProps) {
         ))}
       </div>
 
-      {hasMore && (
-        <div className="flex justify-center pt-8">
-          <button
-            onClick={handleLoadMore}
-            disabled={isLoading}
-            className="group relative px-8 py-4 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl overflow-hidden transition-all hover:border-indigo-500/50 disabled:opacity-50"
-          >
-            <div className="relative z-10 flex items-center gap-3">
-              {isLoading ? (
-                <RiLoader3Line className="animate-spin text-indigo-500" size={20} />
-              ) : (
-                <RiAddLine className="text-indigo-500 group-hover:rotate-90 transition-transform" size={20} />
-              )}
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-100">
-                {isLoading ? "Fetching Data..." : "Load More Dossiers"}
-              </span>
-            </div>
-          </button>
+      {/* Sentinel — triggers load when scrolled into view */}
+      <div ref={sentinelRef} className="h-4" />
+
+      {/* Loading indicator */}
+      {isLoading && (
+        <div className="flex items-center justify-center gap-3 py-6">
+          <RiLoader3Line className="animate-spin text-indigo-500" size={20} />
+          <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+            Loading...
+          </span>
+        </div>
+      )}
+
+      {/* End of list */}
+      {!hasMore && visibleGames.length > 0 && (
+        <div className="flex items-center gap-4 py-6">
+          <div className="flex-1 h-px bg-zinc-800" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+            {games.length} Alternatives Listed
+          </span>
+          <div className="flex-1 h-px bg-zinc-800" />
         </div>
       )}
     </div>
