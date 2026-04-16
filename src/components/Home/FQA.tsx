@@ -19,14 +19,14 @@ export default function FQA() {
         return (
           <div
             key={index}
-            className={`group border transition-all duration-300 overflow-hidden ${
+            className={`group border rounded-xl transition-all duration-300 overflow-hidden ${
               isOpen
                 ? "border-indigo-500/50 bg-indigo-500/5"
                 : "border-zinc-800 bg-zinc-900 hover:border-zinc-700"
             }`}
           >
             <button
-              className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+              className="w-full cursor-pointer flex justify-between items-center p-6 text-left focus:outline-none"
               onClick={() => toggleAccordion(index)}
               aria-expanded={isOpen}
             >
@@ -38,7 +38,7 @@ export default function FQA() {
                 {item.question}
               </span>
               <div
-                className={`shrink-0 flex items-center justify-center w-8 h-8 border transition-all duration-300 ${
+                className={`shrink-0 flex items-center rounded-xl justify-center w-8 h-8 border transition-all duration-300 ${
                   isOpen
                     ? "bg-indigo-500 border-indigo-500 rotate-180"
                     : "bg-zinc-800 border-zinc-700 group-hover:border-zinc-600"
