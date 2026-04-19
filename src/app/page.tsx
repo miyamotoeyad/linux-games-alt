@@ -8,9 +8,9 @@ import {
   RiInformationLine,
   RiArrowRightUpLine,
   RiShieldKeyholeLine,
-  RiLinuxLine,
   RiSearchEyeLine,
 } from "react-icons/ri";
+import { VscTerminalLinux } from "react-icons/vsc";
 import { Contact } from "@/lib/SocialContact";
 import FQA from "@/components/Home/FQA";
 
@@ -113,7 +113,7 @@ export default async function Home() {
             },
             {
               step: "03",
-              icon: RiLinuxLine,
+              icon: VscTerminalLinux,
               title: "Play on Linux",
               body: "Install the alternative, launch it natively, and keep your grind going — no dual-boot, no Windows VM.",
               color: "text-emerald-400",
